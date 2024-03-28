@@ -73,6 +73,14 @@ public class List {
             nodoActual = nodoActual.getNext();
         }
     }*/
+    
+    public void print() {
+        NodeList nodoActual = head;
+        while (nodoActual != null) {
+            System.out.println(nodoActual.getGift().getElement());
+            nodoActual = nodoActual.getNext();
+        }
+    }
 
     public NodeList getHead() {
         return head;

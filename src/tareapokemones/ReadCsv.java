@@ -19,7 +19,7 @@ public class ReadCsv {
     private int [] watts;
     private List giftlist = new List();
 
-    private String filePathStore = "C:\\Users\\chris\\OneDrive\\Escritorio\\Pokemon\\Store.csv";
+    private String filePathStore = "..\\Store.csv";
     
     String line = "";
     int cont = 0;
@@ -31,18 +31,18 @@ public class ReadCsv {
             while ((line = reser.readLine()) != null) {
                 if (cont > 0) {
                     values_store = line.split(",");
+
                     giftlist.insertarFinal(new Gift(values_store[0],Integer.parseInt(values_store[1]),Integer.parseInt(values_store[2])));
-                    
+
                 }
                 cont += 1;
             }
-            cont=0;
+       
             
         watts = wattsnum(giftlist);
         
         store.addGift(watts, giftlist);
         
-        store.inorder();
             
         }catch(IOException e){
             JOptionPane.showMessageDialog(null, "NO SE PUDO IMPORTAR");
