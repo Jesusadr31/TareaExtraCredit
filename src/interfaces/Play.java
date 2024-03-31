@@ -1,12 +1,18 @@
 
 package interfaces;
 
+import javax.swing.JOptionPane;
+import tareapokemones.Account;
+import tareapokemones.Global;
+import tareapokemones.NodeList;
+
 /**
  *
  * @author chris
  */
 public class Play extends javax.swing.JFrame {
-
+    Account user = Global.getUser();
+    NodeList play = Global.getPlay();
     /**
      * Creates new form Play
      */
@@ -14,6 +20,9 @@ public class Play extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        AvailableWatts.setText(Integer.toString(user.getWatts()));
+        txtPOKEMONES.setText(user.getUtility().printPokemon());
+        
     }
 
     /**
@@ -25,21 +34,117 @@ public class Play extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        txtWatts = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        AvailableWatts = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtPOKEMONES = new javax.swing.JTextArea();
+        btnExit = new javax.swing.JButton();
+        btnStartGame = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        txtChoose = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 544, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 353, Short.MAX_VALUE)
-        );
+        jButton1.setText("jButton1");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(txtWatts, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 100, -1));
+
+        jLabel1.setText("Cuantos watts desea apostar:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+
+        jLabel2.setText("Watts disponibles : ");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        AvailableWatts.setText("wats");
+        jPanel1.add(AvailableWatts, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
+
+        txtPOKEMONES.setColumns(20);
+        txtPOKEMONES.setRows(5);
+        jScrollPane1.setViewportView(txtPOKEMONES);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 240, 120));
+
+        btnExit.setText("x");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, -1, -1));
+
+        btnStartGame.setText("Comenzar");
+        btnStartGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStartGameActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnStartGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, -1, -1));
+
+        jLabel4.setText("Tus Pokemones");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, 20));
+        jPanel1.add(txtChoose, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 100, -1));
+
+        jLabel5.setText("Elija el numero de pokemon para comenzar el juego ");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 300, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 250));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnStartGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartGameActionPerformed
+        int poke;
+        int w;
+
+        try {
+            if (txtChoose.getText().equals("") && txtWatts.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Complete el campo en blanco");
+            }else{
+                if(Integer.parseInt(txtWatts.getText()) > user.getWatts()){
+                    JOptionPane.showMessageDialog(null, "No tienes ese saldo!");
+                }else{
+
+                    poke = Integer.parseInt(txtChoose.getText());
+                    w = Integer.parseInt(txtWatts.getText());
+                    int cont = 0;
+
+                    NodeList currentNode = user.getUtility().getHead();
+                    while(currentNode !=null){
+                        if(cont == poke-1){
+                            play = new NodeList(currentNode.getPokemon(),currentNode.getInventory(),w);
+                           
+                        }
+                        currentNode = currentNode.getNext();
+                    }
+                    
+                    if(play.getPokemon().getName().equals("Pikachu")){
+                        PlayPikachu pikachu = new PlayPikachu();
+                        pikachu.show();
+                        this.dispose();
+                    }else if(play.getPokemon().getName().equals("Pachirisu")){
+                        PlayPachirisu pachirisu = new PlayPachirisu();
+                        pachirisu.show();
+                        this.dispose();
+                    }
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Valor invalido!");
+        }
+    }//GEN-LAST:event_btnStartGameActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        vtnPrincipal principal = new vtnPrincipal();
+        principal.show();
+        this.dispose(); 
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -77,5 +182,18 @@ public class Play extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AvailableWatts;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnStartGame;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtChoose;
+    private javax.swing.JTextArea txtPOKEMONES;
+    private javax.swing.JTextField txtWatts;
     // End of variables declaration//GEN-END:variables
 }

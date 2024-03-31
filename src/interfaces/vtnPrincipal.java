@@ -11,7 +11,6 @@ import tareapokemones.Global;
 import tareapokemones.List;
 import tareapokemones.NodeList;
 import tareapokemones.Time;
-import tareapokemones.Tree;
 
 /**
  *
@@ -36,6 +35,7 @@ public class vtnPrincipal extends javax.swing.JFrame {
         Time.setText(Integer.toString(seconds));
 
         txtWatts.setText(Integer.toString(user.getWatts()));
+        Pokemones.setText(user.getUtility().printPokemon());
         
     }
 
@@ -58,6 +58,9 @@ public class vtnPrincipal extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         txtArea = new javax.swing.JTextArea();
         btnPokemon = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Pokemones = new javax.swing.JTextArea();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -73,6 +76,11 @@ public class vtnPrincipal extends javax.swing.JFrame {
         jPanel1.add(btnTienda, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 273, -1, 20));
 
         btnJugar1.setText("Play");
+        btnJugar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnJugar1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnJugar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, -1, -1));
 
         jLabel1.setText("Watts:");
@@ -100,6 +108,15 @@ public class vtnPrincipal extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnPokemon, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, -1, -1));
+
+        Pokemones.setColumns(20);
+        Pokemones.setRows(5);
+        jScrollPane1.setViewportView(Pokemones);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, -1, -1));
+
+        jLabel3.setText("Pokemones");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 440));
 
@@ -132,6 +149,7 @@ public class vtnPrincipal extends javax.swing.JFrame {
                 cont+=100;
             }
             txtArea.setText(result);
+            txtWatts.setText(Integer.toString(user.getWatts()));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"NOOO");
         }
@@ -147,6 +165,12 @@ public class vtnPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "NOOOOOO");
         }
     }//GEN-LAST:event_btnTiendaActionPerformed
+
+    private void btnJugar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugar1ActionPerformed
+        Play game = new Play();
+        game.show();
+        this.dispose();
+    }//GEN-LAST:event_btnJugar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,13 +209,16 @@ public class vtnPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea Pokemones;
     private javax.swing.JLabel Time;
     private javax.swing.JButton btnJugar1;
     private javax.swing.JButton btnPokemon;
     private javax.swing.JButton btnTienda;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea txtArea;
     private javax.swing.JLabel txtWatts;

@@ -8,6 +8,7 @@ package tareapokemones;
 public class NodeList {
    
     private Gift gift;
+    private int currentWatts;
     private Pokemon pokemon;
     private Tree inventory = new Tree();
     private List store = new List();
@@ -29,8 +30,15 @@ public class NodeList {
         this.next = null;
     }
      
-    public NodeList(Pokemon pokemon,Tree t){
+    public NodeList(Pokemon pokemon, Tree t){
         this.pokemon = pokemon;
+        this.inventory = t;
+        this.next = null;
+    }
+    
+    public NodeList(Pokemon pokemon, Tree t,int currentWatts){
+        this.pokemon = pokemon;
+        this.currentWatts = currentWatts;
         this.inventory = t;
         this.next = null;
     }
@@ -73,6 +81,14 @@ public class NodeList {
 
     public void setStore(List store) {
         this.store = store;
+    }
+
+    public int getCurrentWatts() {
+        return currentWatts;
+    }
+
+    public void setCurrentWatts(int currentWatts) {
+        this.currentWatts = currentWatts;
     }
     
     

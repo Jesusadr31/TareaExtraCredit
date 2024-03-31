@@ -25,6 +25,7 @@ public class Store extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        user.SumWatts(10);
         textAreaStore.setText(store.printStore());
         watts.setText(Integer.toString(user.getWatts()));
     }
@@ -110,11 +111,9 @@ public class Store extends javax.swing.JFrame {
             
             if(txtnum.getText().equals("") && txtPokemon.getText().equals("")){
                 JOptionPane.showMessageDialog(null, "Debe completar el campo");
-            
             }else{
                 n = Integer.parseInt(txtnum.getText());
-                name = txtPokemon.getText().toLowerCase();
-                user.SumWatts(10);
+                name = txtPokemon.getText().toLowerCase();                
                 
                 int cont = 0;
                 NodeList currentNode = user.getUtility().getHead();
@@ -150,7 +149,7 @@ public class Store extends javax.swing.JFrame {
                     }
                     currentNode = currentNode.getNext();
                 }
-
+                
 
             }
             

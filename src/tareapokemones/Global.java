@@ -11,7 +11,8 @@ public class Global {
     private static List Pokemons = new List();
     private static Time playtime = new Time();
     private static Tree invent = new Tree();
-
+    private static NodeList play;
+    
 
 
     public static List getStore() {
@@ -60,6 +61,14 @@ public class Global {
 
     public static void setInvent(Tree invent) {
         Global.invent = invent;
+    }
+
+    public static NodeList getPlay() {
+        return play;
+    }
+
+    public static void setPlay(NodeList play) {
+        Global.play = play;
     }
     
     

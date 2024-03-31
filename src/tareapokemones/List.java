@@ -91,10 +91,11 @@ public class List {
     public String printPokemon(){
         NodeList currentNodo = head;
         String result = "";
+        int cont= 1;
         while(currentNodo != null){
-            result += "Nombre " + currentNodo.getPokemon().getName() + "\n";
+            result += "->" + cont +" "+ currentNodo.getPokemon().getName() + "\n";
             currentNodo = currentNodo.getNext();
-            
+            cont++;
         }return result;
     }
     
@@ -103,7 +104,6 @@ public class List {
         String result = "";
         int cont=1;
         while(currentNodo != null){
-            
             result += "->"+ cont + "\n Regalo: " + currentNodo.getGift().getElement() + "\n";
             result += "Costo: " + Integer.toString(currentNodo.getGift().getPrice()) + "\n";
             result += "Relacion: " + Integer.toString(currentNodo.getGift().getEffect()) + "\n";

@@ -92,8 +92,6 @@ public class ShowPokemons extends javax.swing.JFrame {
                     
                     user.getUtility().insertarFinal(pokemons.getHead().getPokemon(),invent);
                     
-                    
-                    
                     long x = System.currentTimeMillis();
                     j = TimeUnit.MILLISECONDS.toSeconds(x);
                     playtime.setCurrentTime(j);
