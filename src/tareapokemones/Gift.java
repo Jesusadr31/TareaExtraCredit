@@ -12,6 +12,18 @@ public class Gift {
         this.price = price;
         this.effect = effect;
     }
+    
+    public String printGift(){
+       
+        String result = "";
+   
+        result += "\n Regalo: " + element + "\n";
+        result += "Costo: " + price + "\n";
+        result += "Relacion: " + effect + "\n";
+ 
+        return result;
+    
+    }
 
     public String getElement() {
         return element;

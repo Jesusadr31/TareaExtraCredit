@@ -44,6 +44,36 @@ public class List {
         size++;
     }
     
+    public void insertarFinal(Pokemon pokemon,Tree t){
+        NodeList newNode = new NodeList(pokemon,t);
+        if(isEmpty()){
+            head = newNode;
+        }
+        else{
+            NodeList currentNodo = head;
+            while(currentNodo.getNext() != null){
+                currentNodo = currentNodo.getNext();
+            }
+            currentNodo.setNext(newNode);
+        }
+        size++;
+    }
+    
+    public void insertarFinal(Pokemon pokemon){
+        NodeList newNode = new NodeList(pokemon);
+        if(isEmpty()){
+            head = newNode;
+        }
+        else{
+            NodeList currentNodo = head;
+            while(currentNodo.getNext() != null){
+                currentNodo = currentNodo.getNext();
+            }
+            currentNodo.setNext(newNode);
+        }
+        size++;
+    }
+    
     
     
     public String printGift(){
@@ -57,22 +87,32 @@ public class List {
             
         }return result;
     }
-
     
-    /*public void printCi() {
-        NodeList nodoActual = head;
-        while (nodoActual != null) {
-            System.out.println(nodoActual.getClient().getCi());
-            nodoActual = nodoActual.getNext();
-        }
+    public String printPokemon(){
+        NodeList currentNodo = head;
+        String result = "";
+        while(currentNodo != null){
+            result += "Nombre " + currentNodo.getPokemon().getName() + "\n";
+            currentNodo = currentNodo.getNext();
+            
+        }return result;
     }
-    public void print() {
-        NodeList nodoActual = head;
-        while (nodoActual != null) {
-            System.out.println(nodoActual.getRoomNum());
-            nodoActual = nodoActual.getNext();
-        }
-    }*/
+    
+    public String printStore(){
+        NodeList currentNodo = head;
+        String result = "";
+        int cont=1;
+        while(currentNodo != null){
+            
+            result += "->"+ cont + "\n Regalo: " + currentNodo.getGift().getElement() + "\n";
+            result += "Costo: " + Integer.toString(currentNodo.getGift().getPrice()) + "\n";
+            result += "Relacion: " + Integer.toString(currentNodo.getGift().getEffect()) + "\n";
+            currentNodo = currentNodo.getNext();
+            cont ++;
+            
+        }return result;
+    }
+    
     
     public void print() {
         NodeList nodoActual = head;

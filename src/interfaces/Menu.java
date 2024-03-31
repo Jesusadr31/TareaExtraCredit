@@ -1,23 +1,18 @@
-
 package interfaces;
-
-import tareapokemones.Global;
-import tareapokemones.Gift;
-import tareapokemones.Tree;
 
 /**
  *
  * @author Jesús
  */
 public class Menu extends javax.swing.JFrame {
-    Tree store = Global.getStore();
+    
     
     
     
     public Menu() {
         initComponents();
-        
-      
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 
     /**
@@ -41,21 +36,41 @@ public class Menu extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnNewGame.setText("New Game");
+        btnNewGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewGameActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnNewGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, -1, -1));
 
         btnLoadGame.setText("Load Game");
         jPanel1.add(btnLoadGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, -1, -1));
 
         btnHowToPlay.setText("How To Play");
+        btnHowToPlay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHowToPlayActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnHowToPlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, -1, -1));
 
         btnCredits.setText("Credits");
         jPanel1.add(btnCredits, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, 90, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 550));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewGameActionPerformed
+        ShowPokemons poke = new ShowPokemons();
+        poke.show(true);
+        this.dispose();
+    }//GEN-LAST:event_btnNewGameActionPerformed
+
+    private void btnHowToPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHowToPlayActionPerformed
+        
+    }//GEN-LAST:event_btnHowToPlayActionPerformed
 
     /**
      * @param args the command line arguments
