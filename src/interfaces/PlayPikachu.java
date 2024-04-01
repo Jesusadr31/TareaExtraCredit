@@ -45,47 +45,61 @@ public class PlayPikachu extends javax.swing.JFrame {
         txtCarta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PlayPikachu");
+        setLocationByPlatform(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnExit.setText("x");
+        btnExit.setBackground(new java.awt.Color(255, 255, 153));
+        btnExit.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
+        btnExit.setText("Regresar");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
             }
         });
-        jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 30, -1));
+        jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 130, 30));
 
+        jLabel1.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         jLabel1.setText("Numero en juego del pikachu");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         jLabel2.setText("La siguiente carta sera mas: ");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
+        bntAlta.setBackground(new java.awt.Color(255, 255, 153));
+        bntAlta.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         bntAlta.setText("Alta");
         bntAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bntAltaActionPerformed(evt);
             }
         });
-        jPanel1.add(bntAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+        jPanel1.add(bntAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 100, 30));
 
+        btnBaja.setBackground(new java.awt.Color(255, 255, 153));
+        btnBaja.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         btnBaja.setText("Baja");
         btnBaja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBajaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnBaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, -1, -1));
+        jPanel1.add(btnBaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 100, 30));
 
+        jButton3.setBackground(new java.awt.Color(255, 255, 153));
+        jButton3.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         jButton3.setText("Como jugar");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 120, 30));
 
+        txtCarta.setFont(new java.awt.Font("Swis721 LtEx BT", 0, 12)); // NOI18N
         txtCarta.setText("Carta");
-        jPanel1.add(txtCarta, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, -1, -1));
+        jPanel1.add(txtCarta, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 200));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 270));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

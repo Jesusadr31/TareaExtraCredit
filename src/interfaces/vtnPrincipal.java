@@ -60,65 +60,85 @@ public class vtnPrincipal extends javax.swing.JFrame {
         btnPokemon = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Pokemones = new javax.swing.JTextArea();
+        jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Main");
+        setLocationByPlatform(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnTienda.setBackground(new java.awt.Color(255, 255, 153));
+        btnTienda.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         btnTienda.setText("Store");
         btnTienda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTiendaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnTienda, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 273, -1, 20));
+        jPanel1.add(btnTienda, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 120, 30));
 
+        btnJugar1.setBackground(new java.awt.Color(255, 255, 153));
+        btnJugar1.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         btnJugar1.setText("Play");
         btnJugar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnJugar1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btnJugar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, -1, -1));
+        jPanel1.add(btnJugar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 120, 30));
 
+        jLabel1.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         jLabel1.setText("Watts:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         jLabel2.setText("Time:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
+        Time.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         Time.setText("Time");
-        jPanel1.add(Time, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
+        jPanel1.add(Time, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, -1, -1));
 
+        txtWatts.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         txtWatts.setText("Watts");
-        jPanel1.add(txtWatts, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, -1));
+        jPanel1.add(txtWatts, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, -1, -1));
 
         txtArea.setColumns(20);
         txtArea.setRows(5);
         jScrollPane2.setViewportView(txtArea);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 280, 180));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 280, 180));
 
+        btnPokemon.setBackground(new java.awt.Color(255, 255, 153));
+        btnPokemon.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         btnPokemon.setText("Pokemon");
         btnPokemon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPokemonActionPerformed(evt);
             }
         });
-        jPanel1.add(btnPokemon, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, -1, -1));
+        jPanel1.add(btnPokemon, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 120, 30));
 
         Pokemones.setColumns(20);
         Pokemones.setRows(5);
         jScrollPane1.setViewportView(Pokemones);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, -1, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, -1, -1));
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 153));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         jLabel3.setText("Pokemones");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 440));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 330, 470));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -218,6 +238,7 @@ public class vtnPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea txtArea;

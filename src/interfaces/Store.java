@@ -41,8 +41,6 @@ public class Store extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnChoose = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        textAreaStore = new javax.swing.JTextArea();
         txtnum = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -50,49 +48,74 @@ public class Store extends javax.swing.JFrame {
         btnExit = new javax.swing.JButton();
         txtPokemon = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textAreaStore = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Store");
+        setLocationByPlatform(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnChoose.setText("Choose");
+        btnChoose.setBackground(new java.awt.Color(255, 255, 153));
+        btnChoose.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
+        btnChoose.setText("Escoger");
         btnChoose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnChooseActionPerformed(evt);
             }
         });
-        jPanel1.add(btnChoose, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, -1, -1));
+        jPanel1.add(btnChoose, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 150, 30));
+        jPanel1.add(txtnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 150, 30));
 
-        textAreaStore.setColumns(20);
-        textAreaStore.setRows(5);
-        jScrollPane1.setViewportView(textAreaStore);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 250, 300));
-        jPanel1.add(txtnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 90, -1));
-
+        jLabel1.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         jLabel1.setText("Elija un regalo");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 110, -1));
 
+        jLabel2.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         jLabel2.setText("Watts");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
+        watts.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         watts.setText("watt");
-        jPanel1.add(watts, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
+        jPanel1.add(watts, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 40, -1));
 
-        btnExit.setText("x");
+        btnExit.setBackground(new java.awt.Color(255, 255, 153));
+        btnExit.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
+        btnExit.setText("Regresar");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
             }
         });
-        jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 300, 80, -1));
-        jPanel1.add(txtPokemon, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 90, 90, -1));
+        jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 150, 30));
 
+        txtPokemon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPokemonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtPokemon, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 150, 30));
+
+        jLabel3.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         jLabel3.setText("Pokemon");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 340));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 350));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 153));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        textAreaStore.setColumns(20);
+        textAreaStore.setRows(5);
+        jScrollPane1.setViewportView(textAreaStore);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 250, 300));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 310, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -159,6 +182,10 @@ public class Store extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnChooseActionPerformed
 
+    private void txtPokemonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPokemonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPokemonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -201,6 +228,7 @@ public class Store extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea textAreaStore;
     private javax.swing.JTextField txtPokemon;

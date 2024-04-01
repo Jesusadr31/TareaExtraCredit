@@ -44,36 +44,49 @@ public class ShowPokemons extends javax.swing.JFrame {
         txtnumPkemon = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("ShowPokemons");
+        setLocationByPlatform(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtAreaPokemones.setColumns(20);
         txtAreaPokemones.setRows(5);
         jScrollPane1.setViewportView(txtAreaPokemones);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, 150));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, -1, 150));
 
-        btnChoose.setText("Choose");
+        btnChoose.setBackground(new java.awt.Color(255, 255, 153));
+        btnChoose.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
+        btnChoose.setText("Escoger");
         btnChoose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnChooseActionPerformed(evt);
             }
         });
-        jPanel1.add(btnChoose, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
-        jPanel1.add(txtnumPkemon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 90, -1));
+        jPanel1.add(btnChoose, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 110, 30));
+        jPanel1.add(txtnumPkemon, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 180, 30));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         jLabel2.setText("Seleccione un pokemon: ");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, -1));
 
-        btnSalir.setText("x");
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, -1, -1));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 153));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 230));
+        btnSalir.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
+        btnSalir.setText("Regresar");
+        jPanel2.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 130, 30));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 290, 360));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -159,6 +172,7 @@ public class ShowPokemons extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea txtAreaPokemones;
     private javax.swing.JTextField txtnumPkemon;

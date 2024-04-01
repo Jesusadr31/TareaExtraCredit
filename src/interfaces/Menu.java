@@ -29,35 +29,76 @@ public class Menu extends javax.swing.JFrame {
         btnLoadGame = new javax.swing.JButton();
         btnHowToPlay = new javax.swing.JButton();
         btnCredits = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("MENU");
+        setLocationByPlatform(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnNewGame.setBackground(new java.awt.Color(255, 255, 153));
+        btnNewGame.setFont(new java.awt.Font("Snap ITC", 0, 14)); // NOI18N
         btnNewGame.setText("New Game");
         btnNewGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNewGameActionPerformed(evt);
             }
         });
-        jPanel1.add(btnNewGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, -1, -1));
+        jPanel1.add(btnNewGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 180, 40));
 
+        btnLoadGame.setBackground(new java.awt.Color(255, 255, 153));
+        btnLoadGame.setFont(new java.awt.Font("Snap ITC", 0, 14)); // NOI18N
         btnLoadGame.setText("Load Game");
-        jPanel1.add(btnLoadGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, -1, -1));
+        btnLoadGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoadGameActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLoadGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 180, 40));
 
+        btnHowToPlay.setBackground(new java.awt.Color(255, 255, 153));
+        btnHowToPlay.setFont(new java.awt.Font("Snap ITC", 0, 14)); // NOI18N
         btnHowToPlay.setText("How To Play");
         btnHowToPlay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHowToPlayActionPerformed(evt);
             }
         });
-        jPanel1.add(btnHowToPlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, -1, -1));
+        jPanel1.add(btnHowToPlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 180, 40));
 
+        btnCredits.setBackground(new java.awt.Color(255, 255, 153));
+        btnCredits.setFont(new java.awt.Font("Snap ITC", 0, 14)); // NOI18N
         btnCredits.setText("Credits");
-        jPanel1.add(btnCredits, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, 90, -1));
+        jPanel1.add(btnCredits, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 180, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 520));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 153));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 50, -1));
+
+        jLabel2.setFont(new java.awt.Font("Snap ITC", 0, 18)); // NOI18N
+        jLabel2.setText("POKEMON GAME");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 200, 20));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 50));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/imagePikachu1.jpg"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 160, 170));
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/imagePikachu2.png"))); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, 120, 140));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -71,6 +112,10 @@ public class Menu extends javax.swing.JFrame {
     private void btnHowToPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHowToPlayActionPerformed
         
     }//GEN-LAST:event_btnHowToPlayActionPerformed
+
+    private void btnLoadGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadGameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLoadGameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,6 +160,12 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnHowToPlay;
     private javax.swing.JButton btnLoadGame;
     private javax.swing.JButton btnNewGame;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

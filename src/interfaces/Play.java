@@ -42,59 +42,76 @@ public class Play extends javax.swing.JFrame {
         AvailableWatts = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtPOKEMONES = new javax.swing.JTextArea();
-        btnExit = new javax.swing.JButton();
         btnStartGame = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         txtChoose = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        btnExit = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Play");
+        setLocationByPlatform(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(txtWatts, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 100, -1));
+        jPanel1.add(txtWatts, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 150, 30));
 
+        jLabel1.setFont(new java.awt.Font("Swis721 LtEx BT", 0, 12)); // NOI18N
         jLabel1.setText("Cuantos watts desea apostar:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Swis721 LtEx BT", 0, 12)); // NOI18N
         jLabel2.setText("Watts disponibles : ");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, 30));
 
+        AvailableWatts.setFont(new java.awt.Font("Swis721 LtEx BT", 0, 12)); // NOI18N
         AvailableWatts.setText("wats");
-        jPanel1.add(AvailableWatts, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
+        jPanel1.add(AvailableWatts, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, -1, -1));
 
         txtPOKEMONES.setColumns(20);
         txtPOKEMONES.setRows(5);
         jScrollPane1.setViewportView(txtPOKEMONES);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 240, 120));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 240, 120));
 
-        btnExit.setText("x");
-        btnExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, -1, -1));
-
+        btnStartGame.setBackground(new java.awt.Color(255, 255, 153));
+        btnStartGame.setFont(new java.awt.Font("Swis721 LtEx BT", 0, 12)); // NOI18N
         btnStartGame.setText("Comenzar");
         btnStartGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnStartGameActionPerformed(evt);
             }
         });
-        jPanel1.add(btnStartGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, -1, -1));
+        jPanel1.add(btnStartGame, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 120, 30));
+        jPanel1.add(txtChoose, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 150, 30));
 
-        jLabel4.setText("Tus Pokemones");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, 20));
-        jPanel1.add(txtChoose, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 100, -1));
-
+        jLabel5.setFont(new java.awt.Font("Swis721 LtEx BT", 0, 12)); // NOI18N
         jLabel5.setText("Elija el numero de pokemon para comenzar el juego ");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 300, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 340, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 250));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 153));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
+        jLabel4.setText("Tus Pokemones");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, -1));
+
+        btnExit.setFont(new java.awt.Font("Swis721 LtEx BT", 0, 12)); // NOI18N
+        btnExit.setText("Regresar");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 312, 120, 30));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 280, 380));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 380));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -191,6 +208,7 @@ public class Play extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtChoose;
     private javax.swing.JTextArea txtPOKEMONES;
