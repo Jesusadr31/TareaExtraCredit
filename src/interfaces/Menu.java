@@ -1,14 +1,25 @@
 package interfaces;
 
+import javax.swing.JOptionPane;
+import tareapokemones.Global;
+import tareapokemones.Read;
+import tareapokemones.Tree;
+
 /**
- *
+ *Ventana del menu principal donde se ejecutarán las acciones principales del programa.
+ * En esta ventana, el usuario puede iniciar un nuevo juego, puede cargar un juego ya creado anteriormente, puede aprender a jugar utilizando el programa
+ * y además podrá tener una vista de los créditos que se otorgan por el desempeño del programa.
+ * 
  * @author Jesús
  */
 public class Menu extends javax.swing.JFrame {
+    Tree inven = Global.getInvent();
     
     
-    
-    
+    /**
+     * Constructor de la clase Menu.
+     * Inicializa los componentes de la interfaz gráfica, centra la ventana y desactiva la capacidad de redimensionamiento.
+     */
     public Menu() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -103,22 +114,56 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Acción realizada al presionar el botón para iniciar un nuevo juego.
+     * Cierra la ventana actual y redirecciona a la ventana de nuevo juego.
+     * 
+     * @param evt El evento de acción que desencadena esta acción.
+     */
+    
     private void btnNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewGameActionPerformed
         ShowPokemons poke = new ShowPokemons();
         poke.show(true);
         this.dispose();
     }//GEN-LAST:event_btnNewGameActionPerformed
 
+    /**
+     * Acción realizada al presionar el botón para conocer la esencia del juego, y poder ver como jugarlo.
+     * Muestra un mensaje en formato de JOptionPane, para indicar cobo saber jugar.
+     * @param evt El evento de acción que desencadena esta acción.
+     */
+
     private void btnHowToPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHowToPlayActionPerformed
         
     }//GEN-LAST:event_btnHowToPlayActionPerformed
 
+    /**
+     * Acción realizada al presionar el botón para cargar un juego existente.
+     * Esta acción permite al usuario poder importar el archivo de juego ya creado.
+     * 
+     * @param evt El evento de acción que desencadena esta acción.
+     */
+    
     private void btnLoadGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadGameActionPerformed
-        // TODO add your handling code here:
+        
+        Read doc = new Read();
+        try{
+            doc.Load(inven);
+
+            vtnPrincipal vtn = new vtnPrincipal();
+            vtn.show();
+            this.dispose();
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "No se pudo importar");
+        }
     }//GEN-LAST:event_btnLoadGameActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Método principal para ejecutar la aplicación.
+     * Crea y muestra la ventana de menú principal.
+     * 
+     * @param args Los argumentos de la línea de comandos (no utilizados en esta aplicación).
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

@@ -5,7 +5,8 @@
 package interfaces;
 
 /**
- *
+ *Ventana 
+ * 
  * @author chris
  */
 public class PlayPachirisu extends javax.swing.JFrame {
@@ -15,6 +16,8 @@ public class PlayPachirisu extends javax.swing.JFrame {
      */
     public PlayPachirisu() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
 
     /**
@@ -26,25 +29,60 @@ public class PlayPachirisu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        Txt = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jTextField1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        btnBackMain = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 584, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 342, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PlayPachirisu");
+        setLocationByPlatform(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Txt.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
+        Txt.setText("\"Adivina en que estoy pensando\"");
+        jPanel1.add(Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, 240));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 170, 30));
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 153));
+        jButton1.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
+        jButton1.setText("Choose");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 100, 30));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 153));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 260, 340));
+
+        btnBackMain.setBackground(new java.awt.Color(255, 255, 153));
+        btnBackMain.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
+        btnBackMain.setText("Regresar");
+        jPanel1.add(btnBackMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 110, 30));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 340));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * @param args the command line arguments
+     * Método principal para ejecutar la aplicación.
+     * Crea y muestra la ventana de playPachirisu.
+     * 
+     * @param args Los argumentos de la línea de comandos (no utilizados en esta aplicación).
      */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -78,5 +116,13 @@ public class PlayPachirisu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Txt;
+    private javax.swing.JButton btnBackMain;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

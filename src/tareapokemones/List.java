@@ -74,6 +74,16 @@ public class List {
         size++;
     }
     
+    public NodeList search(String poke){
+        NodeList currentNode = head;
+        while(currentNode != null){
+            if(currentNode.getPokemon().getName().equals(poke)){
+                return currentNode;
+            }
+            currentNode = currentNode.getNext();
+        }
+        return null;
+    }
     
     
     public String printGift(){

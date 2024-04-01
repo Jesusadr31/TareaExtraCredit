@@ -3,18 +3,25 @@ package interfaces;
 
 import javax.swing.JOptionPane;
 import tareapokemones.Account;
+import tareapokemones.Game;
 import tareapokemones.Global;
 import tareapokemones.NodeList;
 
 /**
- *
+ *Ventana donde el usuario puede iniciar el juego.
+ * Esta ventana permite al usuario poder visualizar los pokemones que posee y escoger el pokemon que desea participar en ese juego. También muestra los watts que tiene 
+ * disponible y puede decidir cuantos watts desea apostar en el juego.
+ * 
  * @author chris
  */
 public class Play extends javax.swing.JFrame {
     Account user = Global.getUser();
-    NodeList play = Global.getPlay();
+    Game g = Global.getGame();
+    
     /**
-     * Creates new form Play
+     * Constructor de la clase Play.
+     * Inicializa los componentes de la interfaz gráfica, centra la ventana, desactiva la capacidad de redimensionamiento, muestra los watts disponibles
+     * y además imprime los pokemones.
      */
     public Play() {
         initComponents();
@@ -116,6 +123,13 @@ public class Play extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Acción realizada al presionar el botón para poder iniciar un nuevo juego.
+     * Realiza una serie de validaciones de que el usuario ingrese los datos correctos permitidos para poder iniciar el juego.
+     * 
+     * @param evt El evento de acción que desencadena esta acción.
+     */
+    
     private void btnStartGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartGameActionPerformed
         int poke;
         int w;
@@ -135,20 +149,35 @@ public class Play extends javax.swing.JFrame {
                     NodeList currentNode = user.getUtility().getHead();
                     while(currentNode !=null){
                         if(cont == poke-1){
-                            play = new NodeList(currentNode.getPokemon(),currentNode.getInventory(),w);
+                            g.setCurrentWatts(w);
+                            g.setInven(currentNode.getInventory());
+                            g.setPk(currentNode.getPokemon());
                            
                         }
                         currentNode = currentNode.getNext();
                     }
+                    cont =100;
+                    int gifts = 0;
                     
-                    if(play.getPokemon().getName().equals("Pikachu")){
-                        PlayPikachu pikachu = new PlayPikachu();
-                        pikachu.show();
-                        this.dispose();
-                    }else if(play.getPokemon().getName().equals("Pachirisu")){
-                        PlayPachirisu pachirisu = new PlayPachirisu();
-                        pachirisu.show();
-                        this.dispose();
+                    while(cont<=900){
+                        gifts += g.getInven().searchElement(cont).getCont();
+                        cont+=100;
+                    }
+                    System.out.println(gifts);
+                    
+                    if(gifts < 2){
+                        JOptionPane.showMessageDialog(null, "Regalos insuficientes, necesitas minimo 2");
+                    }else{
+                    
+                        if (g.getPk().getName().equals("Pikachu")) {
+                            PlayPikachu pikachu = new PlayPikachu();
+                            pikachu.show();
+                            this.dispose();
+                        } else if (g.getPk().getName().equals("Pachirisu")) {
+                            PlayPachirisu pachirisu = new PlayPachirisu();
+                            pachirisu.show();
+                            this.dispose();
+                        }
                     }
                 }
             }
@@ -157,6 +186,13 @@ public class Play extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnStartGameActionPerformed
 
+    /**
+     * Acción realizada al presionar el botón para regresar al menú principal.
+     * Cierra la ventana actual y muestra la ventana del menú principal.
+     * 
+     * @param evt El evento de acción que desencadena esta acción.
+     */
+    
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         vtnPrincipal principal = new vtnPrincipal();
         principal.show();
@@ -164,7 +200,10 @@ public class Play extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Método principal para ejecutar la aplicación.
+     * Crea y muestra la ventana de jugar.
+     * 
+     * @param args Los argumentos de la línea de comandos (no utilizados en esta aplicación).
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

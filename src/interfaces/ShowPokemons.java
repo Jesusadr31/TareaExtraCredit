@@ -10,7 +10,8 @@ import tareapokemones.Time;
 import tareapokemones.Tree;
 
 /**
- *
+ *Ventana que muestra los atributos e información del pokemón.
+ * Esta ventana permite que el usuario pueda visualizar los pokemones.
  * @author chris
  */
 public class ShowPokemons extends javax.swing.JFrame {
@@ -18,8 +19,10 @@ public class ShowPokemons extends javax.swing.JFrame {
     List pokemons = Global.getPokemons();
     Time playtime = Global.getPlaytime();
     Tree invent = Global.getInvent();
+    
     /**
-     * Creates new form Showpokemon
+     * Constructor de la clase ShowPokemons.
+     * Inicializa los componentes de la interfaz gráfica, centra la ventana, desactiva la capacidad de redimensionamiento e imprime los  pokemones en un componente textArea.
      */
     public ShowPokemons() {
         initComponents();
@@ -91,6 +94,12 @@ public class ShowPokemons extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Acción realizada al presionar el botón para escoger mediante un número entero, el pokemóon asignado a ese número para poder visualizarlo.
+     * 
+     * @param evt El evento de acción que desencadena esta acción.
+     */
+    
     private void btnChooseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseActionPerformed
         int num;
         long j;
@@ -110,7 +119,7 @@ public class ShowPokemons extends javax.swing.JFrame {
                     playtime.setCurrentTime(j);
 
                 }else if(num == 2){
-                    user.getUtility().insertarFinal(pokemons.getHead().getPokemon(),invent);
+                    user.getUtility().insertarFinal(pokemons.getHead().getNext().getPokemon(),invent);
                     
                     long x = System.currentTimeMillis();
                     j = TimeUnit.MILLISECONDS.toSeconds(x);
@@ -131,7 +140,10 @@ public class ShowPokemons extends javax.swing.JFrame {
     }//GEN-LAST:event_btnChooseActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Método principal para ejecutar la aplicación.
+     * Crea y muestra la ventana de visualizar los pokemones.
+     * 
+     * @param args Los argumentos de la línea de comandos (no utilizados en esta aplicación).
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

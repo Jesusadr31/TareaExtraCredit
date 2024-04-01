@@ -9,7 +9,10 @@ import tareapokemones.NodeList;
 import tareapokemones.Time;
 
 /**
- *
+ *Ventana que muestra los componentes de la tienda.
+ * Esta ventana permite al usuario poder ver los watts disponibles. Permite seleccionar el pokemon que desea asignarle el regalo, al igual que puede esocger el regalo
+ * que desea asignarle.
+ * 
  * @author chris
  */
 public class Store extends javax.swing.JFrame {
@@ -19,7 +22,9 @@ public class Store extends javax.swing.JFrame {
     long j = playtime.getCurrentTime();
 
     /**
-     * Creates new form Store
+     * Constructor de la clase Play.
+     * Inicializa los componentes de la interfaz gráfica, centra la ventana, desactiva la capacidad de redimensionamiento, muestra los watts disponibles y le suma 10 adicionales,
+     * imprime tienda mediante un textArea.
      */
     public Store() {
         initComponents();
@@ -120,12 +125,24 @@ public class Store extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Acción realizada al presionar el botón para regresar al menú principal.
+     * Cierra la ventana actual y muestra la ventana del menú principal.
+     * 
+     * @param evt El evento de acción que desencadena esta acción.
+     */
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         vtnPrincipal principal = new vtnPrincipal();
         principal.show();
         this.dispose();
     }//GEN-LAST:event_btnExitActionPerformed
 
+    /**
+     * Acción realizada al presionar el botón para escoger que pokemon y regalo tendrá asignado.
+     * 
+     * @param evt El evento de acción que desencadena esta acción.
+     */
+    
     private void btnChooseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseActionPerformed
         String name;
         int n;
@@ -187,7 +204,10 @@ public class Store extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPokemonActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Método principal para ejecutar la aplicación.
+     * Crea y muestra la ventana de Store.
+     * 
+     * @param args Los argumentos de la línea de comandos (no utilizados en esta aplicación).
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
