@@ -10,6 +10,7 @@ import tareapokemones.Account;
 import tareapokemones.Global;
 import tareapokemones.List;
 import tareapokemones.NodeList;
+import tareapokemones.Read;
 import tareapokemones.Time;
 
 /**
@@ -32,7 +33,8 @@ public class vtnPrincipal extends javax.swing.JFrame {
         long z = TimeUnit.MILLISECONDS.toSeconds(y);
 
         int seconds = (int)(z - j);
-        Time.setText(Integer.toString(seconds));
+        playtime.setTime(seconds);
+        Time.setText(Integer.toString(playtime.getTime()));
 
         txtWatts.setText(Integer.toString(user.getWatts()));
         Pokemones.setText(user.getUtility().printPokemon());
@@ -50,7 +52,7 @@ public class vtnPrincipal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnTienda = new javax.swing.JButton();
-        btnJugar1 = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         Time = new javax.swing.JLabel();
@@ -62,6 +64,7 @@ public class vtnPrincipal extends javax.swing.JFrame {
         Pokemones = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        btnJugar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Main");
@@ -79,17 +82,17 @@ public class vtnPrincipal extends javax.swing.JFrame {
                 btnTiendaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnTienda, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 120, 30));
+        jPanel1.add(btnTienda, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 120, 30));
 
-        btnJugar1.setBackground(new java.awt.Color(255, 255, 153));
-        btnJugar1.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
-        btnJugar1.setText("Play");
-        btnJugar1.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setBackground(new java.awt.Color(255, 255, 153));
+        btnGuardar.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
+        btnGuardar.setText("Guardar Juego");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnJugar1ActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnJugar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 120, 30));
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 120, 30));
 
         jLabel1.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         jLabel1.setText("Watts:");
@@ -121,7 +124,7 @@ public class vtnPrincipal extends javax.swing.JFrame {
                 btnPokemonActionPerformed(evt);
             }
         });
-        jPanel1.add(btnPokemon, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 120, 30));
+        jPanel1.add(btnPokemon, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 120, 30));
 
         Pokemones.setColumns(20);
         Pokemones.setRows(5);
@@ -137,6 +140,16 @@ public class vtnPrincipal extends javax.swing.JFrame {
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 330, 470));
+
+        btnJugar.setBackground(new java.awt.Color(255, 255, 153));
+        btnJugar.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
+        btnJugar.setText("Play");
+        btnJugar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnJugarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 120, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 470));
 
@@ -161,6 +174,7 @@ public class vtnPrincipal extends javax.swing.JFrame {
             NodeList currentNode = user.getUtility().getHead();
             while(currentNode!=null){
                 result+= "Nombre: " + currentNode.getPokemon().getName() + "\n";
+                result+= "Relacion: " + currentNode.getPokemon().getRelation() + "\n";
                 result+= "Estado animo: " + currentNode.getPokemon().getStatus() + "\n";
                 result+= "Inventario: \n";
                 result+= currentNode.getInventory().inorder();
@@ -186,11 +200,19 @@ public class vtnPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnTiendaActionPerformed
 
-    private void btnJugar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugar1ActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        Read doc = new Read();
+        try {
+            doc.Save();
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
         Play game = new Play();
         game.show();
         this.dispose();
-    }//GEN-LAST:event_btnJugar1ActionPerformed
+    }//GEN-LAST:event_btnJugarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,7 +253,8 @@ public class vtnPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea Pokemones;
     private javax.swing.JLabel Time;
-    private javax.swing.JButton btnJugar1;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnJugar;
     private javax.swing.JButton btnPokemon;
     private javax.swing.JButton btnTienda;
     private javax.swing.JLabel jLabel1;

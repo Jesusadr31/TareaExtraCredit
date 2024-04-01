@@ -14,12 +14,10 @@ public class TareaPokemones {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Read doc = new Read(); 
-        try{
-        
+        Read doc = new Read();
+        try{       
             doc.ReadStore(); 
 
-            
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "No se pudo importar");
         }

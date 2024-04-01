@@ -3,6 +3,7 @@ package interfaces;
 import java.util.Random;
 import javax.swing.JOptionPane;
 import tareapokemones.Account;
+import tareapokemones.Game;
 import tareapokemones.Global;
 import tareapokemones.NodeList;
 
@@ -12,7 +13,7 @@ import tareapokemones.NodeList;
  */
 public class PlayPikachu extends javax.swing.JFrame {
         Account user = Global.getUser();
-        NodeList game = Global.getPlay();
+        Game game = Global.getGame();
         Random random = new Random();
         int startNum = random.nextInt(1,13);
     /**
@@ -22,7 +23,6 @@ public class PlayPikachu extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        
         txtCarta.setText(Integer.toString(startNum));
     }
 
@@ -36,7 +36,6 @@ public class PlayPikachu extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnExit = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         bntAlta = new javax.swing.JButton();
@@ -52,23 +51,13 @@ public class PlayPikachu extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnExit.setBackground(new java.awt.Color(255, 255, 153));
-        btnExit.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
-        btnExit.setText("Regresar");
-        btnExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 130, 30));
-
         jLabel1.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         jLabel1.setText("Numero en juego del pikachu");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         jLabel2.setText("La siguiente carta sera mas: ");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
 
         bntAlta.setBackground(new java.awt.Color(255, 255, 153));
         bntAlta.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
@@ -78,7 +67,7 @@ public class PlayPikachu extends javax.swing.JFrame {
                 bntAltaActionPerformed(evt);
             }
         });
-        jPanel1.add(bntAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 100, 30));
+        jPanel1.add(bntAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 100, 30));
 
         btnBaja.setBackground(new java.awt.Color(255, 255, 153));
         btnBaja.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
@@ -88,16 +77,16 @@ public class PlayPikachu extends javax.swing.JFrame {
                 btnBajaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnBaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 100, 30));
+        jPanel1.add(btnBaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 100, 30));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 153));
         jButton3.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         jButton3.setText("Como jugar");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 120, 30));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 120, 30));
 
         txtCarta.setFont(new java.awt.Font("Swis721 LtEx BT", 0, 12)); // NOI18N
         txtCarta.setText("Carta");
-        jPanel1.add(txtCarta, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, -1, -1));
+        jPanel1.add(txtCarta, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 270));
 
@@ -115,34 +104,31 @@ public class PlayPikachu extends javax.swing.JFrame {
             this.dispose();
         }else{
             JOptionPane.showMessageDialog(null, "La carta del pikachu fue " + randomNum + "Perdiste!!");
+            user.getUtility().search("Pikachu").getPokemon().SumRelation(game.getCurrentWatts());
             user.ResWatts(game.getCurrentWatts());
             Play p = new Play();
             p.show();
         }
         
-        //txtCarta.setText(Integer.toString(randomNum));
         
     }//GEN-LAST:event_bntAltaActionPerformed
 
     private void btnBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBajaActionPerformed
         int randomNum = random.nextInt(1,13);
         if (randomNum < startNum) {
-            JOptionPane.showMessageDialog(null, "La carta del pikachu fue " + randomNum + "Ganaste!!");
+            JOptionPane.showMessageDialog(null, "La carta del pikachu fue " + randomNum + " Ganaste!!");
             user.SumWatts(game.getCurrentWatts());
             Play p = new Play();
             p.show();
             this.dispose();
         }else{
-            JOptionPane.showMessageDialog(null, "La carta del pikachu fue " + randomNum + "Perdiste!!");
+            JOptionPane.showMessageDialog(null, "La carta del pikachu fue " + randomNum + " Perdiste!!");
+            user.getUtility().search("Pikachu").getPokemon().SumRelation(game.getCurrentWatts());
             user.ResWatts(game.getCurrentWatts());
             Play p = new Play();
             p.show();
         }
     }//GEN-LAST:event_btnBajaActionPerformed
-
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,7 +168,6 @@ public class PlayPikachu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntAlta;
     private javax.swing.JButton btnBaja;
-    private javax.swing.JButton btnExit;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

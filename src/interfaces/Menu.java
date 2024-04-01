@@ -1,11 +1,16 @@
 package interfaces;
 
+import javax.swing.JOptionPane;
+import tareapokemones.Global;
+import tareapokemones.Read;
+import tareapokemones.Tree;
+
 /**
  *
  * @author Jesús
  */
 public class Menu extends javax.swing.JFrame {
-    
+    Tree inven = Global.getInvent();
     
     
     
@@ -114,7 +119,18 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHowToPlayActionPerformed
 
     private void btnLoadGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadGameActionPerformed
-        // TODO add your handling code here:
+        
+        Read doc = new Read();
+        try{
+            doc.Load(inven);
+
+            vtnPrincipal vtn = new vtnPrincipal();
+            vtn.show();
+            this.dispose();
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "No se pudo importar");
+        }
     }//GEN-LAST:event_btnLoadGameActionPerformed
 
     /**

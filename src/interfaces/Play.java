@@ -3,6 +3,7 @@ package interfaces;
 
 import javax.swing.JOptionPane;
 import tareapokemones.Account;
+import tareapokemones.Game;
 import tareapokemones.Global;
 import tareapokemones.NodeList;
 
@@ -12,7 +13,7 @@ import tareapokemones.NodeList;
  */
 public class Play extends javax.swing.JFrame {
     Account user = Global.getUser();
-    NodeList play = Global.getPlay();
+    Game g = Global.getGame();
     /**
      * Creates new form Play
      */
@@ -135,20 +136,35 @@ public class Play extends javax.swing.JFrame {
                     NodeList currentNode = user.getUtility().getHead();
                     while(currentNode !=null){
                         if(cont == poke-1){
-                            play = new NodeList(currentNode.getPokemon(),currentNode.getInventory(),w);
+                            g.setCurrentWatts(w);
+                            g.setInven(currentNode.getInventory());
+                            g.setPk(currentNode.getPokemon());
                            
                         }
                         currentNode = currentNode.getNext();
                     }
+                    cont =100;
+                    int gifts = 0;
                     
-                    if(play.getPokemon().getName().equals("Pikachu")){
-                        PlayPikachu pikachu = new PlayPikachu();
-                        pikachu.show();
-                        this.dispose();
-                    }else if(play.getPokemon().getName().equals("Pachirisu")){
-                        PlayPachirisu pachirisu = new PlayPachirisu();
-                        pachirisu.show();
-                        this.dispose();
+                    while(cont<=900){
+                        gifts += g.getInven().searchElement(cont).getCont();
+                        cont+=100;
+                    }
+                    System.out.println(gifts);
+                    
+                    if(gifts < 2){
+                        JOptionPane.showMessageDialog(null, "Regalos insuficientes, necesitas minimo 2");
+                    }else{
+                    
+                        if (g.getPk().getName().equals("Pikachu")) {
+                            PlayPikachu pikachu = new PlayPikachu();
+                            pikachu.show();
+                            this.dispose();
+                        } else if (g.getPk().getName().equals("Pachirisu")) {
+                            PlayPachirisu pachirisu = new PlayPachirisu();
+                            pachirisu.show();
+                            this.dispose();
+                        }
                     }
                 }
             }

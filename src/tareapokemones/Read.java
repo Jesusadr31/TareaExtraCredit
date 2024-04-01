@@ -21,6 +21,7 @@ public class Read {
     Tree inven = Global.getInvent();
     List store = Global.getStore();
     List pokemons = Global.getPokemons();
+
     
     private String [] values_store;
     
@@ -60,11 +61,17 @@ public class Read {
             JOptionPane.showMessageDialog(null, "NO SE PUDO IMPORTAR");
         } 
     }
-    /*
-    public void Load() throws FileNotFoundException, IOException{
+    
+    public void Load(Tree inven1) throws FileNotFoundException, IOException{
         
-        boolean city = false; 
+        int cont = 0;
+        boolean poke = false; 
+        boolean w1 = false;
+        boolean w = false;
         int i = 0;
+        int [] inventory =new int[15];
+        int [] inventory1 =new int[15];
+        
 
         JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
         jfc.setDialogTitle("Select txt");
@@ -74,7 +81,7 @@ public class Read {
 
 	int Value = jfc.showOpenDialog(null);
 		
-
+        
 	if (Value == JFileChooser.APPROVE_OPTION) {
             File file = jfc.getSelectedFile();
                         
@@ -82,28 +89,61 @@ public class Read {
             in = new BufferedReader(new FileReader(file));
             String line = in.readLine();
             while (line != null) {
-                if(line.equals("ciudad")){
-                    city = true;
+                if(line.equals("Pokemons")){
                     line = in.readLine();
+                    user.getUtility().insertarFinal(new Pokemon(line,0,"Sight"),inven1);
+                    cont ++;
+                    if(cont == 2){
+                       
+                        line = in.readLine();
+                        user.getUtility().insertarFinal(new Pokemon(line,0,"Sight"),inven1);
+                        cont ++;
+                    }
                 }
-                if(line.equals("aristas")){
-                    city = false;
+                if(line.equals("Relacion") && cont > 0){
                     line = in.readLine();
+                    user.getUtility().getHead().getPokemon().setRelation(Integer.parseInt(line));
+                    if(cont == 2){
+                        user.getUtility().getHead().getNext().getPokemon().setRelation(Integer.parseInt(line));
+                    }
                 }
-                if(city == true){
-                    numVert++;
-                }else{
-                    aristas[i] = line;
-                    numAri++;
+                if(line.equals("Watts")){
+                    line = in.readLine(); 
+                    user.setWatts(Integer.parseInt(line));
+                }
+                if(line.equals("Invetory")&& cont > 0){
+                    w = true;
+                    line = in.readLine();
+                    if(cont == 2){
+                        w1 = true;
+                    }
+                }
+                if(w == true){
+                    
+                    inventory[i] = Integer.parseInt(line);
+                    i++;
+                } 
+                if(w1 == true){
+                    
+                    inventory1[i] = Integer.parseInt(line);
                     i++;
                 }
-                    line = in.readLine();
-            }            
-	}
+                line = in.readLine();
+            }
+        }
+        int cont1 = 100;
+        for (int j = 0; j < 9; j++) {
+            user.getUtility().getHead().getInventory().searchElement(cont1).setCont(inventory[j]);
+            if(user.getUtility().getHead().getNext()!= null){
+                user.getUtility().getHead().getNext().getInventory().searchElement(cont1).setCont(inventory[j]);
+            }
+            cont1+=100;
+        }
     }
     
     public void Save()throws FileNotFoundException, IOException{
-       
+        
+        
         JFileChooser fc = new JFileChooser();
             
         
@@ -127,26 +167,58 @@ public class Read {
             
             fw = new FileWriter(fichero);
             
+           
+            fw.write("Pokemons\n");
             
-            fw.write("ciudad\n");
-            for (int i = 1; i < grafo.getNumVerts()+1; i++) {
-                fw.write(i+" ");
+                fw.write(user.getUtility().getHead().getPokemon().getName()+" ");
                 fw.write("\n");
+            
+            
+            fw.write("Relacion\n");
+            fw.write(user.getUtility().getHead().getPokemon().getRelation()+" ");
+            fw.write("\n");
+                    
+                
+            fw.write("Watts\n");
+            fw.write(user.getWatts()+" ");
+            fw.write("\n");
+            
+            int cont = 100;
+            fw.write("Iventary\n");
+            for (int i = 1; i < 9; i++) {
+                fw.write(user.getUtility().getHead().getInventory().searchElement(cont).getCont()+" ");
+                fw.write("\n");
+                cont += 100;
             }
             
-            fw.write("aristas\n");
-            for (int i = 0; i < grafo.getNumVerts(); i++) {
-                for (int j = 0; j < grafo.getNumVerts(); j++) {
-                    if (grafo.getMatrixAdy()[i][j] != 0) {
-                        fw.write(String.valueOf(i+1)+","+ String.valueOf(j+1) +","+String.valueOf(grafo.getMatrixAdy()[i][j])+"");
-                        fw.write("\n");
-                    }
+            if(user.getUtility().getHead().getNext() != null){
+                fw.write("Pokemons\n");
+                fw.write(user.getUtility().getHead().getNext().getPokemon().getName() + " ");
+                fw.write("\n");
+
+                fw.write("Relacion\n");
+                fw.write(user.getUtility().getHead().getNext().getPokemon().getRelation() + " ");
+                fw.write("\n");
+
+                fw.write("Watts\n");
+                fw.write(user.getWatts() + " ");
+                fw.write("\n");
+
+                cont = 100;
+                fw.write("Iventary\n");
+                for (int i = 1; i < 9; i++) {
+                    fw.write(user.getUtility().getHead().getNext().getInventory().searchElement(cont).getCont() + " ");
+                    fw.write("\n");
+                    cont += 100;
                 }
             }
+            
             fw.close();
+            
+            
 
         }
-    }*/
+    }
     
     public int [] wattsnum(List giftslist){
         int tamaño = giftslist.getSize();

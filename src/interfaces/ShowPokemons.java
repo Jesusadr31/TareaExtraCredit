@@ -110,7 +110,7 @@ public class ShowPokemons extends javax.swing.JFrame {
                     playtime.setCurrentTime(j);
 
                 }else if(num == 2){
-                    user.getUtility().insertarFinal(pokemons.getHead().getPokemon(),invent);
+                    user.getUtility().insertarFinal(pokemons.getHead().getNext().getPokemon(),invent);
                     
                     long x = System.currentTimeMillis();
                     j = TimeUnit.MILLISECONDS.toSeconds(x);
