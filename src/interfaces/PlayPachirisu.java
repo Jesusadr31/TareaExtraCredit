@@ -1,13 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package interfaces;
 
 import java.util.Random;
 import tareapokemones.Account;
 import tareapokemones.Game;
 import tareapokemones.Global;
+import tareapokemones.List;
 
 /**
  *Ventana 
@@ -101,23 +99,31 @@ public class PlayPachirisu extends javax.swing.JFrame {
 
     private void btnChooseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseActionPerformed
         int num;
-        
+        List list = new List();
         String gift;
         
         try {
             
             int cont =100;
-            int gifts = 0;
                     
             while (cont <= 900) {
-                gifts += game.getInven().searchElement(cont).getCont();
+                if (game.getInven().searchElement(cont).getCont() != 0) {
+                    list.insertarFinal(game.getInven().searchElement(cont).getStore(), game.getInven().searchElement(cont).getCont());
+                }
                 cont += 100;
             }
-            int randomNum = random.nextInt(0,gifts);
+            
+            while(cont <= 900){
+                
+            }
+            
+            // Creamos un random para determinar cual camino va a tomar 
+            
+           
             
             num = Integer.parseInt(txtChosse.getText());
             
-            gift = game.getInven().searchElement(randomNum*100).getStore().getElement();
+            //gift = game.getInven().searchElement(randomNum*100).getStore().getElement();
             
             
         } catch (Exception e) {

@@ -6,7 +6,8 @@ package tareapokemones;
  * @author chris
  */
 public class NodeList {
-   
+    
+    private int num;
     private Gift gift;
     private int currentWatts;
     private Pokemon pokemon;
@@ -15,6 +16,12 @@ public class NodeList {
     private NodeList next;
     
     public NodeList(Gift gift){
+        this.gift = gift;
+        this.next = null;
+    }
+    
+    public NodeList(Gift gift,int num){
+        this.num = num;
         this.gift = gift;
         this.next = null;
     }

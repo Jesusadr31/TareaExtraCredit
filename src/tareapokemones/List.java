@@ -16,21 +16,22 @@ public class List {
     public boolean isEmpty(){
         return head == null;
     }
-    
-    public void insertarInicio(Gift gift){
-        NodeList newNodo = new NodeList(gift);
-        if(isEmpty()){
-            head = newNodo;
- 
-        }else{
-            newNodo.setNext(head);
-            head = newNodo;
-        }
-        size ++;
-    }
-    
     public void insertarFinal(Gift gift){
         NodeList newNode = new NodeList(gift);
+        if(isEmpty()){
+            head = newNode;
+        }
+        else{
+            NodeList currentNodo = head;
+            while(currentNodo.getNext() != null){
+                currentNodo = currentNodo.getNext();
+            }
+            currentNodo.setNext(newNode);
+        }
+        size++;
+    }
+    public void insertarFinal(Gift gift,int num){
+        NodeList newNode = new NodeList(gift,num);
         if(isEmpty()){
             head = newNode;
         }
