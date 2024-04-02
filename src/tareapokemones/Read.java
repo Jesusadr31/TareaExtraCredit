@@ -13,8 +13,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
 
 /**
- *
- * @author chris
+ * Clase que representa la lectura del archivo CSV.
+ * Esta clase contiene los métodos para leer un archivo CSV y cargarlo o guardarlo.
+ * @author Jesús
  */
 public class Read {
     Account user = Global.getUser();
@@ -22,7 +23,6 @@ public class Read {
     List store = Global.getStore();
     List pokemons = Global.getPokemons();
 
-    
     private String [] values_store;
     
     private int [] watts;
@@ -31,7 +31,11 @@ public class Read {
     private String filePathStore = "..\\Store.csv";
     
     
-    
+    /**
+     * Método para leer la tienda en el archivo.
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
     public void ReadStore()throws FileNotFoundException, IOException{
         String line = "";
         int cont = 0;
@@ -62,6 +66,12 @@ public class Read {
         } 
     }
     
+    /**
+     * Método para cargar un archivo
+     * @param inven1 arbol de inventario
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
     public void Load(Tree inven1) throws FileNotFoundException, IOException{
         
         int cont = 0;
@@ -141,6 +151,11 @@ public class Read {
         }
     }
     
+    /**
+     * Método para guardar un archivo de juego.
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
     public void Save()throws FileNotFoundException, IOException{
         
         
@@ -220,6 +235,11 @@ public class Read {
         }
     }
     
+    /**
+     * 
+     * @param giftslist
+     * @return 
+     */
     public int [] wattsnum(List giftslist){
         int tamaño = giftslist.getSize();
         int[] array = new int[tamaño];

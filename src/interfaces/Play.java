@@ -163,7 +163,7 @@ public class Play extends javax.swing.JFrame {
                         gifts += g.getInven().searchElement(cont).getCont();
                         cont+=100;
                     }
-                    System.out.println(gifts);
+                    
                     
                     if(gifts < 2){
                         JOptionPane.showMessageDialog(null, "Regalos insuficientes, necesitas minimo 2");

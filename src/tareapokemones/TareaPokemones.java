@@ -5,7 +5,7 @@ import interfaces.Menu;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *Clase Main donde se ejecuta todo el programa.
  * @author Jesús
  */
 public class TareaPokemones {

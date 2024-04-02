@@ -1,5 +1,10 @@
 package tareapokemones;
 
+import interfaces.vtnPrincipal;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 /**
  *Clase que representa una cuenta de un usuario.
  * Esta clase contiene los metodos Getters and setters del usuario para poder acceder y otorgar valores
@@ -70,4 +75,5 @@ public class Account {
     public void setWatts(int watts) {
         this.watts = watts;
     }
+    
 }
