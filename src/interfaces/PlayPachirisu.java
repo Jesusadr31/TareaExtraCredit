@@ -4,13 +4,20 @@
  */
 package interfaces;
 
+import java.util.Random;
+import tareapokemones.Account;
+import tareapokemones.Game;
+import tareapokemones.Global;
+
 /**
  *Ventana 
  * 
  * @author chris
  */
 public class PlayPachirisu extends javax.swing.JFrame {
-
+    Account user = Global.getUser();
+    Game game = Global.getGame();
+    Random random = new Random();
     /**
      * Creates new form PlayPachirisu
      */
@@ -18,6 +25,7 @@ public class PlayPachirisu extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        TxtAreaStore.setText(user.getUtility().getHead().getInventory().inorder());
     }
 
     /**
@@ -32,9 +40,9 @@ public class PlayPachirisu extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         Txt = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        TxtAreaStore = new javax.swing.JTextArea();
+        txtChosse = new javax.swing.JTextField();
+        btnChoose = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btnBackMain = new javax.swing.JButton();
 
@@ -50,17 +58,28 @@ public class PlayPachirisu extends javax.swing.JFrame {
         Txt.setText("\"Adivina en que estoy pensando\"");
         jPanel1.add(Txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        TxtAreaStore.setColumns(20);
+        TxtAreaStore.setRows(5);
+        jScrollPane1.setViewportView(TxtAreaStore);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, 240));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 170, 30));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 153));
-        jButton1.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
-        jButton1.setText("Choose");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 100, 30));
+        txtChosse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtChosseActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtChosse, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 170, 30));
+
+        btnChoose.setBackground(new java.awt.Color(255, 255, 153));
+        btnChoose.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
+        btnChoose.setText("Choose");
+        btnChoose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChooseActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnChoose, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 100, 30));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -75,6 +94,35 @@ public class PlayPachirisu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtChosseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtChosseActionPerformed
+        
+    }//GEN-LAST:event_txtChosseActionPerformed
+
+    private void btnChooseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseActionPerformed
+        int num;
+        
+        String gift;
+        
+        try {
+            
+            int cont =100;
+            int gifts = 0;
+                    
+            while (cont <= 900) {
+                gifts += game.getInven().searchElement(cont).getCont();
+                cont += 100;
+            }
+            int randomNum = random.nextInt(0,gifts);
+            
+            num = Integer.parseInt(txtChosse.getText());
+            
+            gift = game.getInven().searchElement(randomNum*100).getStore().getElement();
+            
+            
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_btnChooseActionPerformed
 
     /**
      * Método principal para ejecutar la aplicación.
@@ -117,12 +165,12 @@ public class PlayPachirisu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Txt;
+    private javax.swing.JTextArea TxtAreaStore;
     private javax.swing.JButton btnBackMain;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnChoose;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtChosse;
     // End of variables declaration//GEN-END:variables
 }

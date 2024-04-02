@@ -1,7 +1,13 @@
 
 package interfaces;
 
+import java.awt.Image;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import tareapokemones.Account;
 import tareapokemones.Global;
@@ -53,22 +59,49 @@ public class vtnPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnGuardar1 = new javax.swing.JButton();
+        btnGuardar2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         btnTienda = new javax.swing.JButton();
-        btnGuardar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         Time = new javax.swing.JLabel();
         txtWatts = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtArea = new javax.swing.JTextArea();
         btnPokemon = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Pokemones = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        txtEstado = new javax.swing.JTextField();
+        btnEstado = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Pokemones = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtArea = new javax.swing.JTextArea();
         btnJugar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        btnGuardarJuego = new javax.swing.JButton();
+        lblImage = new javax.swing.JLabel();
+        btnAgregarNuevo = new javax.swing.JButton();
+
+        btnGuardar1.setBackground(new java.awt.Color(255, 255, 153));
+        btnGuardar1.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
+        btnGuardar1.setText("Guardar Juego");
+        btnGuardar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardar1ActionPerformed(evt);
+            }
+        });
+
+        btnGuardar2.setBackground(new java.awt.Color(255, 255, 153));
+        btnGuardar2.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
+        btnGuardar2.setText("Guardar Juego");
+        btnGuardar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardar2ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Main");
@@ -86,17 +119,7 @@ public class vtnPrincipal extends javax.swing.JFrame {
                 btnTiendaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnTienda, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 120, 30));
-
-        btnGuardar.setBackground(new java.awt.Color(255, 255, 153));
-        btnGuardar.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
-        btnGuardar.setText("Guardar Juego");
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 120, 30));
+        jPanel1.add(btnTienda, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 140, 30));
 
         jLabel1.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         jLabel1.setText("Watts:");
@@ -114,12 +137,6 @@ public class vtnPrincipal extends javax.swing.JFrame {
         txtWatts.setText("Watts");
         jPanel1.add(txtWatts, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, -1, -1));
 
-        txtArea.setColumns(20);
-        txtArea.setRows(5);
-        jScrollPane2.setViewportView(txtArea);
-
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 280, 180));
-
         btnPokemon.setBackground(new java.awt.Color(255, 255, 153));
         btnPokemon.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         btnPokemon.setText("Pokemon");
@@ -128,22 +145,39 @@ public class vtnPrincipal extends javax.swing.JFrame {
                 btnPokemonActionPerformed(evt);
             }
         });
-        jPanel1.add(btnPokemon, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 120, 30));
-
-        Pokemones.setColumns(20);
-        Pokemones.setRows(5);
-        jScrollPane1.setViewportView(Pokemones);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, -1, -1));
+        jPanel1.add(btnPokemon, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 140, 30));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         jLabel3.setText("Pokemones");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
+        jPanel2.add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 90, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 330, 470));
+        btnEstado.setBackground(new java.awt.Color(255, 255, 153));
+        btnEstado.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
+        btnEstado.setText("Ver estado");
+        btnEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEstadoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 130, 30));
+
+        Pokemones.setColumns(20);
+        Pokemones.setRows(5);
+        jScrollPane1.setViewportView(Pokemones);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 230, 100));
+
+        txtArea.setColumns(20);
+        txtArea.setRows(5);
+        jScrollPane2.setViewportView(txtArea);
+
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 250, 320));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 330, 560));
 
         btnJugar.setBackground(new java.awt.Color(255, 255, 153));
         btnJugar.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
@@ -153,13 +187,34 @@ public class vtnPrincipal extends javax.swing.JFrame {
                 btnJugarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 120, 30));
+        jPanel1.add(btnJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 140, 30));
 
         jLabel4.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         jLabel4.setText("seconds");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 470));
+        btnGuardarJuego.setBackground(new java.awt.Color(255, 255, 153));
+        btnGuardarJuego.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
+        btnGuardarJuego.setText("Guardar Juego");
+        btnGuardarJuego.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarJuegoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnGuardarJuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, 140, 30));
+        jPanel1.add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 160, 110));
+
+        btnAgregarNuevo.setBackground(new java.awt.Color(255, 255, 153));
+        btnAgregarNuevo.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
+        btnAgregarNuevo.setText("Agregar Pokemon");
+        btnAgregarNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarNuevoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAgregarNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 140, 30));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -227,13 +282,13 @@ public class vtnPrincipal extends javax.swing.JFrame {
      * @param evt El evento de acción que desencadena esta acción.
      */
     
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+    private void btnGuardarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarJuegoActionPerformed
         Read doc = new Read();
         try {
             doc.Save();
         } catch (Exception e) {
         }
-    }//GEN-LAST:event_btnGuardarActionPerformed
+    }//GEN-LAST:event_btnGuardarJuegoActionPerformed
 
     /**
      * Acción realizada al presionar el botón para dirigerse a la ventana de jugar.
@@ -246,6 +301,178 @@ public class vtnPrincipal extends javax.swing.JFrame {
         game.show();
         this.dispose();
     }//GEN-LAST:event_btnJugarActionPerformed
+
+    private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardar1ActionPerformed
+
+    private void btnGuardar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardar2ActionPerformed
+
+    private void btnEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadoActionPerformed
+        int num;
+        Image image;
+        try{
+            num = Integer.parseInt(txtEstado.getText());
+            if(user.getUtility().getSize()>1){
+                if (num == 1 && user.getUtility().getHead().getPokemon().getName().equals("Pikachu")){
+                    if (user.getUtility().getHead().getPokemon().getStatus().equals("Sigh")) {
+                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Sighpikachu.png"));
+                        image = imageIcon.getImage();
+                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                        ImageIcon icon = new ImageIcon(newImg);
+                        lblImage.setIcon(icon);
+                    } else if (user.getUtility().getHead().getPokemon().getStatus().equals("Angry")) {
+                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Angrypikachu.png"));
+                        image = imageIcon.getImage();
+                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                        ImageIcon icon = new ImageIcon(newImg);
+                        lblImage.setIcon(icon);
+                    } else if (user.getUtility().getHead().getPokemon().getStatus().equals("Normal")) {
+                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Normalpikachu.png"));
+                        image = imageIcon.getImage();
+                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                        ImageIcon icon = new ImageIcon(newImg);
+                        lblImage.setIcon(icon);
+                    } else if (user.getUtility().getHead().getPokemon().getStatus().equals("Happy")) {
+                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Happypikachu.png"));
+                        image = imageIcon.getImage();
+                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                        ImageIcon icon = new ImageIcon(newImg);
+                        lblImage.setIcon(icon);
+                    } else if (user.getUtility().getHead().getPokemon().getStatus().equals("Inspired")) {
+                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Inspiredpikachu.png"));
+                        image = imageIcon.getImage();
+                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                        ImageIcon icon = new ImageIcon(newImg);
+                        lblImage.setIcon(icon);
+                    }
+                }else{
+                    if (user.getUtility().getHead().getNext().getPokemon().getStatus().equals("Sigh")) {
+                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/SighPachirisu.png"));
+                        image = imageIcon.getImage();
+                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                        ImageIcon icon = new ImageIcon(newImg);
+                        lblImage.setIcon(icon);
+                    } else if (user.getUtility().getHead().getNext().getPokemon().getStatus().equals("Angry")) {
+                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/AngryPachirisu.png"));
+                        image = imageIcon.getImage();
+                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                        ImageIcon icon = new ImageIcon(newImg);
+                        lblImage.setIcon(icon);
+                    } else if (user.getUtility().getHead().getNext().getPokemon().getStatus().equals("Normal")) {
+                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/NormalPachirisu.png"));
+                        image = imageIcon.getImage();
+                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                        ImageIcon icon = new ImageIcon(newImg);
+                        lblImage.setIcon(icon);
+                    } else if (user.getUtility().getHead().getNext().getPokemon().getStatus().equals("Happy")) {
+                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/HappyPachirisu.png"));
+                        image = imageIcon.getImage();
+                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                        ImageIcon icon = new ImageIcon(newImg);
+                        lblImage.setIcon(icon);
+                    } else if (user.getUtility().getHead().getNext().getPokemon().getStatus().equals("Inspired")) {
+                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/InspiredPachirisu.png"));
+                        image = imageIcon.getImage();
+                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                        ImageIcon icon = new ImageIcon(newImg);
+                        lblImage.setIcon(icon);
+                    }
+                }
+            }else{
+            
+                if(user.getUtility().getHead().getPokemon().getName().equals("Pikachu")){
+                    
+                    if (user.getUtility().getHead().getPokemon().getStatus().equals("Sigh")) {
+                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Sighpikachu.png"));
+                        image = imageIcon.getImage();
+                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                        ImageIcon icon = new ImageIcon(newImg);
+                        lblImage.setIcon(icon);
+                    } else if (user.getUtility().getHead().getPokemon().getStatus().equals("Angry")) {
+                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Angrypikachu.png"));
+                        image = imageIcon.getImage();
+                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                        ImageIcon icon = new ImageIcon(newImg);
+                        lblImage.setIcon(icon);
+                    } else if (user.getUtility().getHead().getPokemon().getStatus().equals("Normal")) {
+                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Normalpikachu.png"));
+                        image = imageIcon.getImage();
+                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                        ImageIcon icon = new ImageIcon(newImg);
+                        lblImage.setIcon(icon);
+                    } else if (user.getUtility().getHead().getPokemon().getStatus().equals("Happy")) {
+                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Happypikachu.png"));
+                        image = imageIcon.getImage();
+                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                        ImageIcon icon = new ImageIcon(newImg);
+                        lblImage.setIcon(icon);
+                    } else if (user.getUtility().getHead().getPokemon().getStatus().equals("Inspired")) {
+                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Inspiredpikachu.png"));
+                        image = imageIcon.getImage();
+                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                        ImageIcon icon = new ImageIcon(newImg);
+                        lblImage.setIcon(icon);
+                    }
+                    
+                }else if (user.getUtility().getHead().getPokemon().getName().equals("Pachirisu")) {
+                        System.out.println("SI ENTRA");
+                    
+                    if (user.getUtility().getHead().getNext().getPokemon().getStatus().equals("Sigh")) {
+                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/SighPachirisu.png"));
+                        image = imageIcon.getImage();
+                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                        ImageIcon icon = new ImageIcon(newImg);
+                        lblImage.setIcon(icon);
+                    } else if (user.getUtility().getHead().getNext().getPokemon().getStatus().equals("Angry")) {
+                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/AngryPachirisu.png"));
+                        image = imageIcon.getImage();
+                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                        ImageIcon icon = new ImageIcon(newImg);
+                        lblImage.setIcon(icon);
+                    } else if (user.getUtility().getHead().getNext().getPokemon().getStatus().equals("Normal")) {
+                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/NormalPachirisu.png"));
+                        image = imageIcon.getImage();
+                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                        ImageIcon icon = new ImageIcon(newImg);
+                        lblImage.setIcon(icon);
+                    } else if (user.getUtility().getHead().getNext().getPokemon().getStatus().equals("Happy")) {
+                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/HappyPachirisu.png"));
+                        image = imageIcon.getImage();
+                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                        ImageIcon icon = new ImageIcon(newImg);
+                        lblImage.setIcon(icon);
+                    } else if (user.getUtility().getHead().getNext().getPokemon().getStatus().equals("Inspired")) {
+                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/InspiredPachirisu.png"));
+                        image = imageIcon.getImage();
+                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                        ImageIcon icon = new ImageIcon(newImg);
+                        lblImage.setIcon(icon);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Valor ivalido!,Ese pokemon no existe");
+        }
+    }//GEN-LAST:event_btnEstadoActionPerformed
+
+    private void btnAgregarNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarNuevoActionPerformed
+        int num;
+        try {
+            num = user.getUtility().getHead().getPokemon().getRelation();
+            if(num >= 8000){
+                ShowPokemons poke = new ShowPokemons();
+                poke.show();
+                this.dispose();
+            }else{
+                JOptionPane.showMessageDialog(null, "No tienes la suficiente relacion para agregar otro pokemon");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se puede agregar otro pokemon");
+        }  
+    }//GEN-LAST:event_btnAgregarNuevoActionPerformed
 
     /**
      * Método principal para ejecutar la aplicación.
@@ -290,10 +517,15 @@ public class vtnPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea Pokemones;
     private javax.swing.JLabel Time;
-    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnAgregarNuevo;
+    private javax.swing.JButton btnEstado;
+    private javax.swing.JButton btnGuardar1;
+    private javax.swing.JButton btnGuardar2;
+    private javax.swing.JButton btnGuardarJuego;
     private javax.swing.JButton btnJugar;
     private javax.swing.JButton btnPokemon;
     private javax.swing.JButton btnTienda;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -302,7 +534,9 @@ public class vtnPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblImage;
     private javax.swing.JTextArea txtArea;
+    private javax.swing.JTextField txtEstado;
     private javax.swing.JLabel txtWatts;
     // End of variables declaration//GEN-END:variables
 }

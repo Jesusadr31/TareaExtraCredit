@@ -85,6 +85,11 @@ public class ShowPokemons extends javax.swing.JFrame {
 
         btnSalir.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         btnSalir.setText("Regresar");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 130, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 290, 360));
@@ -108,36 +113,61 @@ public class ShowPokemons extends javax.swing.JFrame {
             if(txtnumPkemon.getText().equals("")){
                 JOptionPane.showMessageDialog(null, "Porfavor introduzca un numero");
             }else{
+                
                 num = Integer.parseInt(txtnumPkemon.getText());
             
                 if(num == 1){
-                    
-                    user.getUtility().insertarFinal(pokemons.getHead().getPokemon(),invent);
-                    
-                    long x = System.currentTimeMillis();
-                    j = TimeUnit.MILLISECONDS.toSeconds(x);
-                    playtime.setCurrentTime(j);
-
+                    if (user.getUtility().getHead() != null) {
+                        if(user.getUtility().getHead().getPokemon().getName().equals("Pikachu")){
+                            user.getUtility().insertarFinal(pokemons.getHead().getNext().getPokemon(),invent);
+                        }
+                        if(user.getUtility().getHead().getNext().getPokemon().getName().equals("Pachirisu")){
+                            user.getUtility().insertarFinal(pokemons.getHead().getPokemon(),invent);
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Ya tienes el maximo de pokemones existentes");
+                        }
+                    }else{
+                        user.getUtility().insertarFinal(pokemons.getHead().getPokemon(), invent);
+                    }
                 }else if(num == 2){
-                    user.getUtility().insertarFinal(pokemons.getHead().getNext().getPokemon(),invent);
+                    if (user.getUtility().getHead() != null) {
+                        if(user.getUtility().getHead().getPokemon().getName().equals("Pikachu")){
+                            user.getUtility().insertarFinal(pokemons.getHead().getNext().getPokemon(),invent);
+                        }
+                        if(user.getUtility().getHead().getNext().getPokemon().getName().equals("Pachirisu")){
+                            user.getUtility().insertarFinal(pokemons.getHead().getPokemon(),invent);
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(null, "Ya tienes el maximo de pokemones existentes");
+                        }
+                    }else{
+                        user.getUtility().insertarFinal(pokemons.getHead().getNext().getPokemon(),invent);
                     
-                    long x = System.currentTimeMillis();
-                    j = TimeUnit.MILLISECONDS.toSeconds(x);
-                    playtime.setCurrentTime(j);
+                        
+                    }
 
                 }else{
                     JOptionPane.showMessageDialog(null, "Este pokemon no existe, Porfavor elija un Pokemon existente");
                 }   
+                    long x = System.currentTimeMillis();
+                    j = TimeUnit.MILLISECONDS.toSeconds(x);
+                    playtime.setCurrentTime(j);
+                    
+                    vtnPrincipal ventenap = new vtnPrincipal();
+                    ventenap.show();
+                    this.dispose();
             }
-  
-            vtnPrincipal ventenap = new vtnPrincipal();
-            ventenap.show();
-            this.dispose();
-            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Valor invalido!");
         }
     }//GEN-LAST:event_btnChooseActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        Menu menu = new Menu();
+        menu.show();
+        this.dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * Método principal para ejecutar la aplicación.

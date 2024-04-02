@@ -1,8 +1,12 @@
 package interfaces;
 
+import java.util.concurrent.TimeUnit;
 import javax.swing.JOptionPane;
+import tareapokemones.Account;
 import tareapokemones.Global;
+import tareapokemones.List;
 import tareapokemones.Read;
+import tareapokemones.Time;
 import tareapokemones.Tree;
 
 /**
@@ -14,6 +18,10 @@ import tareapokemones.Tree;
  */
 public class Menu extends javax.swing.JFrame {
     Tree inven = Global.getInvent();
+    Account user = Global.getUser();
+    List pokemons = Global.getPokemons();
+    Time playtime = Global.getPlaytime();
+    
     
     
     /**
@@ -88,6 +96,11 @@ public class Menu extends javax.swing.JFrame {
         btnCredits.setBackground(new java.awt.Color(255, 255, 153));
         btnCredits.setFont(new java.awt.Font("Snap ITC", 0, 14)); // NOI18N
         btnCredits.setText("Credits");
+        btnCredits.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreditsActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnCredits, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 180, 40));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 153));
@@ -134,7 +147,7 @@ public class Menu extends javax.swing.JFrame {
      */
 
     private void btnHowToPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHowToPlayActionPerformed
-        
+        JOptionPane.showMessageDialog(null, "");
     }//GEN-LAST:event_btnHowToPlayActionPerformed
 
     /**
@@ -147,9 +160,14 @@ public class Menu extends javax.swing.JFrame {
     private void btnLoadGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadGameActionPerformed
         
         Read doc = new Read();
+        long j;
         try{
             doc.Load(inven);
-
+            
+            
+            long x = System.currentTimeMillis();
+            j = TimeUnit.MILLISECONDS.toSeconds(x);
+            playtime.setCurrentTime(j);
             vtnPrincipal vtn = new vtnPrincipal();
             vtn.show();
             this.dispose();
@@ -158,6 +176,10 @@ public class Menu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No se pudo importar");
         }
     }//GEN-LAST:event_btnLoadGameActionPerformed
+
+    private void btnCreditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreditsActionPerformed
+        JOptionPane.showMessageDialog(null, "");
+    }//GEN-LAST:event_btnCreditsActionPerformed
 
     /**
      * Método principal para ejecutar la aplicación.
