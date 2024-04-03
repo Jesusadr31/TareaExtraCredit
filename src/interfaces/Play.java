@@ -77,7 +77,7 @@ public class Play extends javax.swing.JFrame {
 
         AvailableWatts.setFont(new java.awt.Font("Swis721 LtEx BT", 0, 12)); // NOI18N
         AvailableWatts.setText("wats");
-        jPanel1.add(AvailableWatts, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, -1, -1));
+        jPanel1.add(AvailableWatts, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, -1, -1));
 
         txtPOKEMONES.setColumns(20);
         txtPOKEMONES.setRows(5);

@@ -117,6 +117,19 @@ public class List {
         return null;
     }
     
+    public NodeList searchNum(int num){
+        NodeList currentNode = head;
+        int cont = 1 ;
+        while(currentNode != null){
+            if(cont == num){
+                return currentNode;
+            }
+            currentNode = currentNode.getNext();
+            cont++;
+        }
+        return null;
+    }
+    
     /**
      * Método para mostrar los regalos.
      * @return variable para mostrar los detalles de cada regalo.
@@ -160,6 +173,18 @@ public class List {
             result += "->"+ cont + "\n Regalo: " + currentNodo.getGift().getElement() + "\n";
             result += "Costo: " + Integer.toString(currentNodo.getGift().getPrice()) + "\n";
             result += "Relacion: " + Integer.toString(currentNodo.getGift().getEffect()) + "\n";
+            currentNodo = currentNodo.getNext();
+            cont ++;
+            
+        }return result;
+    }
+    
+    public String printgamePachi(){
+        NodeList currentNodo = head;
+        String result = "";
+        int cont=1;
+        while(currentNodo != null){
+            result += "->"+ cont + "\n Regalo: " + currentNodo.getGift().getElement() + "\n";
             currentNodo = currentNodo.getNext();
             cont ++;
             

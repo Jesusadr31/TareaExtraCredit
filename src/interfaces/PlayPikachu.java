@@ -92,7 +92,7 @@ public class PlayPikachu extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 120, 30));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 120, 30));
 
         txtCarta.setFont(new java.awt.Font("Swis721 LtEx BT", 0, 12)); // NOI18N
         txtCarta.setText("Carta");

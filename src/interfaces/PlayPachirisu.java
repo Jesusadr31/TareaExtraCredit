@@ -2,6 +2,7 @@
 package interfaces;
 
 import java.util.Random;
+import javax.swing.JOptionPane;
 import tareapokemones.Account;
 import tareapokemones.Game;
 import tareapokemones.Global;
@@ -17,6 +18,7 @@ public class PlayPachirisu extends javax.swing.JFrame {
     Account user = Global.getUser();
     Game game = Global.getGame();
     Random random = new Random();
+    List Store = Global.getStore();
     
     
     /**
@@ -28,7 +30,7 @@ public class PlayPachirisu extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        TxtAreaStore.setText(user.getUtility().getHead().getInventory().inorder());
+        TxtAreaStore.setText(Store.printgamePachi());
     }
 
     /**
@@ -47,7 +49,6 @@ public class PlayPachirisu extends javax.swing.JFrame {
         txtChosse = new javax.swing.JTextField();
         btnChoose = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        btnBackMain = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PlayPachirisu");
@@ -88,11 +89,6 @@ public class PlayPachirisu extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 260, 340));
 
-        btnBackMain.setBackground(new java.awt.Color(255, 255, 153));
-        btnBackMain.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
-        btnBackMain.setText("Regresar");
-        jPanel1.add(btnBackMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 110, 30));
-
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 340));
 
         pack();
@@ -113,34 +109,52 @@ public class PlayPachirisu extends javax.swing.JFrame {
      */
     private void btnChooseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseActionPerformed
         int num;
-        List list = new List();
         String gift;
         
         try {
-            
+            num=Integer.parseInt(txtChosse.getText());
+            int sumGifts =0;
             int cont =100;
-                    
+            gift = Store.searchNum(num).getGift().getElement();
+            
             while (cont <= 900) {
                 if (game.getInven().searchElement(cont).getCont() != 0) {
-                    list.insertarFinal(game.getInven().searchElement(cont).getStore(), game.getInven().searchElement(cont).getCont());
+                    sumGifts += game.getInven().searchElement(cont).getCont();
                 }
                 cont += 100;
             }
             
-            while(cont <= 900){
-                
-            }
+            cont = 100;
             
-            // Creamos un random para determinar cual camino va a tomar 
-            
+            int randomNum = random.nextInt(1,sumGifts);
            
+            while (cont < 1000) {
+                
+                if (game.getInven().searchElement(cont).getCont() == randomNum){
+                    if (game.getInven().searchElement(cont).getStore().getElement().equals(gift)) {
+                        JOptionPane.showMessageDialog(null, "Ganaste, El pokemon estaba pensando en : " + gift +"Se te cargaran los watts");
+                        user.SumWatts(game.getCurrentWatts());
+                        break;
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Perdiste, El pokemon estaba pensando en : "+ game.getInven().searchElement(cont).getStore().getElement() +"Se te cargaran los watts");
+                        user.ResWatts(game.getCurrentWatts());
+                        break;
+                    }
+                }else if(cont == 900){
+                    int num1 = random.nextInt(1,9);
+                    JOptionPane.showMessageDialog(null, "Perdiste, El pokemon estaba pensando en :"+ Store.searchNum(num1).getGift().getElement() +"Se te cargaran los watts");
+                    user.ResWatts(game.getCurrentWatts());
+                    
+                }
+                cont += 100;
+            }
+            Play p = new Play();
+            p.show();
+            this.dispose();
             
-            num = Integer.parseInt(txtChosse.getText());
-            
-            //gift = game.getInven().searchElement(randomNum*100).getStore().getElement();
-            
-            
+
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Valor invalido!!");
         }
     }//GEN-LAST:event_btnChooseActionPerformed
 
@@ -186,7 +200,6 @@ public class PlayPachirisu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Txt;
     private javax.swing.JTextArea TxtAreaStore;
-    private javax.swing.JButton btnBackMain;
     private javax.swing.JButton btnChoose;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

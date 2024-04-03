@@ -22,6 +22,7 @@ public class Read {
     Tree inven = Global.getInvent();
     List store = Global.getStore();
     List pokemons = Global.getPokemons();
+    Tree i = Global.getNewPokeinven();
 
     private String [] values_store;
     
@@ -56,7 +57,7 @@ public class Read {
         watts = wattsnum(store);
         
         inven.addGift(watts,store);
-        
+        i.addGift(watts, store);
         
         pokemons.insertarFinal(new Pokemon("Pikachu",0,"Sigh"));
         pokemons.insertarFinal(new Pokemon("Pachirisu",0,"Sigh"));

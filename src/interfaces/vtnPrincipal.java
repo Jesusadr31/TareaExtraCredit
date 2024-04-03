@@ -31,7 +31,7 @@ public class vtnPrincipal extends javax.swing.JFrame {
     long j = playtime.getCurrentTime();
     ImageIcon imagelbl = Global.getIcon();
     List pokemones = Global.getPokemons();
-    Tree inven = Global.getInvent();
+    Tree inven = Global.getNewPokeinven();
     
     /**
      * Constructor de la clase vtnaPrincipal.
@@ -328,7 +328,6 @@ public class vtnPrincipal extends javax.swing.JFrame {
                     lblImage.setIcon(icon);
                     
                 } else if (user.getUtility().getHead().getPokemon().getStatus().equals("Angry")) {
-                    System.out.println("sexoo");
                     ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Angrypikachu.png"));
                     Image image = imageIcon.getImage();
                     Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
@@ -366,7 +365,6 @@ public class vtnPrincipal extends javax.swing.JFrame {
                     Global.setIcon(icon);
                     lblImage.setIcon(icon);
                 }else if (user.getUtility().getHead().getPokemon().getStatus().equals("Angry")) {
-                    System.out.println("ANALLL");
                     ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/AngryPachirisu.png"));
                     Image image = imageIcon.getImage();
                     Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
@@ -479,7 +477,7 @@ public class vtnPrincipal extends javax.swing.JFrame {
             
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Valor ivalido!,Ese pokemon no existe");
+            JOptionPane.showMessageDialog(null, "Valor ivalido!. Ese pokemon no existe");
         }
     }//GEN-LAST:event_btnEstadoActionPerformed
 

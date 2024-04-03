@@ -266,6 +266,5 @@ public class Tree {
         y.setHeight(Math.max(altura(y.getLeft()), altura(y.getRight())) + 1);
         return y;
     }
-    
-    
+
 }

@@ -23,7 +23,6 @@ public class Menu extends javax.swing.JFrame {
     Time playtime = Global.getPlaytime();
     
     
-    
     /**
      * Constructor de la clase Menu.
      * Inicializa los componentes de la interfaz gráfica, centra la ventana y desactiva la capacidad de redimensionamiento.
@@ -198,6 +197,7 @@ public class Menu extends javax.swing.JFrame {
         Read doc = new Read();
         long j;
         try{
+            
             doc.Load(inven);
             
             

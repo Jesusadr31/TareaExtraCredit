@@ -15,6 +15,7 @@ public class Global {
     private static List Pokemons = new List();
     private static Time playtime = new Time();
     private static Tree invent = new Tree();
+    private static Tree newPokeinven = new Tree();
     private static Game game = new Game(new Pokemon("",0,""),new Tree(),0);
     private static ImageIcon icon = new ImageIcon();
     
@@ -139,6 +140,14 @@ public class Global {
 
     public static void setIcon(ImageIcon icon) {
         Global.icon = icon;
+    }
+
+    public static Tree getNewPokeinven() {
+        return newPokeinven;
+    }
+
+    public static void setNewPokeinven(Tree newPokeinven) {
+        Global.newPokeinven = newPokeinven;
     }
     
     
