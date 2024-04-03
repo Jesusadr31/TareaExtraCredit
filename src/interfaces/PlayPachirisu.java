@@ -8,7 +8,8 @@ import tareapokemones.Global;
 import tareapokemones.List;
 
 /**
- *Ventana 
+ *Ventana para jugar "Adivina en lo que estoy pensando".
+ * Esta ventana permite al usuario poder realizar su juego sugerido con el pokemon de Pachirisu.
  * 
  * @author chris
  */
@@ -16,8 +17,12 @@ public class PlayPachirisu extends javax.swing.JFrame {
     Account user = Global.getUser();
     Game game = Global.getGame();
     Random random = new Random();
+    
+    
     /**
-     * Creates new form PlayPachirisu
+     * Constructor de la clase PlayPachirisu.
+     * Inicializa los componentes de la interfaz gráfica, centra la ventana, desactiva la capacidad de redimensionamiento, y asigna texto recorrido en metodo inorder
+     * hacia un textArea.
      */
     public PlayPachirisu() {
         initComponents();
@@ -93,10 +98,19 @@ public class PlayPachirisu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    /**
+     * Acción realizada cuando el usuario ingresa en el campo para escoger.
+     * @param evt El evento de acción que desencadena esta acción.
+     */
     private void txtChosseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtChosseActionPerformed
         
     }//GEN-LAST:event_txtChosseActionPerformed
 
+    /**
+     * Acción realizada al presionar el botón para escoger.
+     * @param evt El evento de acción que desencadena esta acción.
+     */
     private void btnChooseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseActionPerformed
         int num;
         List list = new List();

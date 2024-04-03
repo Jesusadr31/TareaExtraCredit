@@ -1,34 +1,61 @@
 
 package tareapokemones;
 
+/**
+ * Clase que representa el arbol como Estructura de Datos (EDD).
+ * Esta clase representa la implementacion de un arbol como EDD.
+ * @author Jesús
+ */
 
-//Utilizando un Arbol Binario de Busqueda para guardar el historial de habitaciones
 public class Tree {
     private NodeTree root;
     private int size;
     
-    
+    /**
+     * Constructor de la raiz del arbol de la clase Tree.
+     */
     public Tree() {
         root = null;
     }
     
-     // Obtener la altura del nodo
+    /**
+     * Método para obtener la altura.
+     * @param N Nodo del arbol
+     * @return altura del arbol
+     */
     public int altura(NodeTree N) {
         if (N == null)
             return 0;
         return N.getHeight();
     }
     
+    /**
+     * Método para saber si está vacío el arbol.
+     * @return null si la raiz no contiene nada.
+     */
     public boolean isEmpty(){
         return root == null;
     }
-    //Falta agregar las habitaciones
+    
+    
+    /**
+     * Método para añadir regalos al arbol.
+     * @param numWatts numero de watts
+     * @param gifts regalos
+     */
     public void addGift(int[] numWatts,List gifts){
-        root = insertClient(numWatts,0,numWatts.length-1,gifts);
+        root = insert(numWatts,0,numWatts.length-1,gifts);
         size++;
     }
-    // Metodo para agregar un cliente en habitaciones agarrando un arreglo
-    private NodeTree insertClient(int[] numWatts, int start, int end,List gifts) {
+    /**
+     * Método para insertar en el arbol
+     * @param numWatts numero de watts
+     * @param start inicio
+     * @param end final
+     * @param gifts regalos 
+     * @return 
+     */
+    private NodeTree insert(int[] numWatts, int start, int end,List gifts) {
         
         if (start > end) {
             return null;
@@ -37,8 +64,8 @@ public class Tree {
         int middle = (start + end) / 2;
         NodeTree node = new NodeTree(numWatts[middle],GiftObj(gifts,numWatts[middle]));
        
-        node.setLeft(insertClient(numWatts, start, middle - 1,gifts));
-        node.setRight(insertClient(numWatts, middle + 1,end,gifts));
+        node.setLeft(insert(numWatts, start, middle - 1,gifts));
+        node.setRight(insert(numWatts, middle + 1,end,gifts));
         
         node.setHeight(1 + Math.max(altura(node.getLeft()), altura(node.getRight())));
         
@@ -70,11 +97,20 @@ public class Tree {
     }
 
     
-    // Metodo para buscar clientes que se han hospedado en una habitacion
+    /**
+     * Método para buscar un elemento.
+     * @param watts watts 
+     * @return la raiz con los watts
+     */
     public NodeTree searchElement(int watts){
         return search(root,watts);
     }
-    //Metodo privado recursivo de buscar un nodo en el arbol
+    /**
+     * Metodo privado recursivo de buscar un nodo en el arbol.
+     * @param node nodo del arbol
+     * @param num numero
+     * @return retorna la busqueda.
+     */
     private NodeTree search(NodeTree node, int num){
         if(node == null || node.getNum() == num){
             return node != null ? node: null;
@@ -86,10 +122,19 @@ public class Tree {
         }
     }
    
+    /**
+     * Método inorder 
+     * @return la raiz.
+     */
     public String inorder() {
     return inorderRec(root);
 }
 
+    /**
+     * Método para recorrer el arbol inorder.
+     * @param root raiz del arbol
+     * @return variable para mostrar
+     */
     private String inorderRec(NodeTree root) {
         String result = "";
         if (root != null) {
@@ -102,11 +147,20 @@ public class Tree {
     }
 
 
-    //Eliminar un nodo del arbol recursivamente
+    /**
+     * Eliminar un nodo del arbol recursivamente.
+     * @param num numero a eliminar
+     */
     public void delete(int num){
         root = deleteNode(root, num);
     }
     
+    /**
+     * Método para eliminar nodo del arbol.
+     * @param node nodo del arbol
+     * @param num numero 
+     * @return nodo
+     */
     private NodeTree deleteNode(NodeTree node, int num) {
         if (node == null) {
             return null; 
@@ -135,16 +189,32 @@ public class Tree {
         return node;
     }
 
+    /**
+     * Método para obtener el apuntador izquierdo con el dato.
+     * @param nodo
+     * @return el numero del nodo
+     */
     private int foundMini(NodeTree nodo) {
         while (nodo.getLeft() != null) {
             nodo = nodo.getLeft();
         }
         return nodo.getNum();
     }
+    
+    /**
+     * Obtiene el tamaño del arbol.
+     * @return tamaño del arbol.
+     */
     public int getSize() {
         return size;
     }
     
+    /**
+     * Método
+     * @param gifts regalos
+     * @param watts watts
+     * @return 
+     */
     public Gift GiftObj(List gifts,int watts){
         NodeList currentNode = gifts.getHead();
         while(currentNode != null){
@@ -155,6 +225,11 @@ public class Tree {
         return null;
     }
     
+    /**
+     * Método para obtener el balance del arbol.
+     * @param N nodo
+     * @return la altura.
+     */
     public int getBalance(NodeTree N) {
         if (N == null)
             return 0;
@@ -162,7 +237,11 @@ public class Tree {
     
     }
     
-    // Rotación a la derecha
+    /**
+     * Método para rotar el arbol hacia la derecha.
+     * @param y nodo
+     * @return nodo con el apuntador izquierda
+     */
     private NodeTree rotacionDerecha(NodeTree y) {
         NodeTree x = y.getLeft();
         NodeTree T2 = x.getRight();
@@ -173,7 +252,11 @@ public class Tree {
         return x;
     }
 
-    // Rotación a la izquierda
+    /**
+     * Método para rotar el arbol hacia la izquierda.
+     * @param x nodo
+     * @return nodo con el apuntador derecho.
+     */
     private NodeTree rotacionIzquierda(NodeTree x) {
         NodeTree y = x.getRight();
         NodeTree T2 = y.getLeft();
