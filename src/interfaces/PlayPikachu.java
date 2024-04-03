@@ -87,6 +87,11 @@ public class PlayPikachu extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(255, 255, 153));
         jButton3.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         jButton3.setText("Como jugar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 120, 30));
 
         txtCarta.setFont(new java.awt.Font("Swis721 LtEx BT", 0, 12)); // NOI18N
@@ -107,13 +112,13 @@ public class PlayPikachu extends javax.swing.JFrame {
 
         int randomNum = random.nextInt(1,13);
         if (randomNum > startNum) {
-            JOptionPane.showMessageDialog(null, "La carta del pikachu fue " + randomNum + "Ganaste!!");
+            JOptionPane.showMessageDialog(null, "La carta del pikachu fue " + randomNum + " Ganaste!!");
             user.SumWatts(game.getCurrentWatts());
             Play p = new Play();
             p.show();
             this.dispose();
         }else{
-            JOptionPane.showMessageDialog(null, "La carta del pikachu fue " + randomNum + "Perdiste!!");
+            JOptionPane.showMessageDialog(null, "La carta del pikachu fue " + randomNum + " Perdiste!!");
             user.getUtility().search("Pikachu").getPokemon().SumRelation(game.getCurrentWatts());
             user.ResWatts(game.getCurrentWatts());
             Play p = new Play();
@@ -144,6 +149,10 @@ public class PlayPikachu extends javax.swing.JFrame {
             p.show();
         }
     }//GEN-LAST:event_btnBajaActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * Método principal para ejecutar la aplicación.

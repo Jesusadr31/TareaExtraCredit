@@ -13,13 +13,6 @@ import javax.swing.JOptionPane;
 public class Account {
     private List utility;
     private int watts;
-
-    /**
-     * Contructor vacío de la clase Account.
-     * @param utility Lista de utilidades de la cuenta.
-     * @param watts inciializados en valor 0.
-     * 
-     */
     
     public Account() {
         this.utility = new List();

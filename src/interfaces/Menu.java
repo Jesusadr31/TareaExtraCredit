@@ -147,7 +147,43 @@ public class Menu extends javax.swing.JFrame {
      */
 
     private void btnHowToPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHowToPlayActionPerformed
-        JOptionPane.showMessageDialog(null, "");
+        JOptionPane.showMessageDialog(null, """
+                                    >>>>>>>>>>>>>>>>>>>>>>>>   APRENDE A JUGAR POKEMON GAME    <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+                                            
+                                         Este programa consiste en un juego de probabilidades acerca de pokemones
+                                         en donde el usuario puede escoger el pokemon con el que desea jugar. 
+                                         A continuación se presentan las funciones del juego:
+                                            
+                                         >>>NEW GAME<<<
+                                            Iniciamos escogiendo el pokemón con el que se quiere jugar(Pikachu/Pachirisu)
+                                            Una vez escogido el pokemón se dirige a una ventana para poder acceder a las
+                                            demás funciones del juego en donde podremos:
+                                            
+                                            - Visualizar a los pokemones
+                                               "Muestra el pokemon con su información y los regalos que posee"
+                                            
+                                            - Ver el estado de relación de los pokemones
+                                               "Indicar el número del pokemon que se posee para poder identificar el estado"
+                                            
+                                            - Dirigirse a la tienda
+                                               "Se debe de indicar el pokemón y el regalo que se desea comprar"
+                                            
+                                            - Iniciar el juego
+                                               "Se debe de indicar el número del pokemón y los watts que se quieren apostar"
+                                            
+                                            - Agregar pokemón (Debes tener +8000 relación)
+                                            
+                                            - Guardar juego
+                                               "Se puede guardar un juego existente para ser conservado"
+                                            
+                                         >>>LOAD GAME<<<
+                                            Esta función permite al usuario poder cargar un archivo de juego ya creado 
+                                            anteriormente con el fin de preservar los datos.
+                                            
+                                         >>>CREDITS<<<
+                                            Muestra los créditos de los creadores del programa y todos aquellos créditos
+                                            adicionales de imágenes y sonidos.
+                                            """, "¿Cómo jugar Pokemon Game?", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnHowToPlayActionPerformed
 
     /**
@@ -178,7 +214,25 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoadGameActionPerformed
 
     private void btnCreditsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreditsActionPerformed
-        JOptionPane.showMessageDialog(null, "");
+        JOptionPane.showMessageDialog(null, """
+                                             >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   CRÉDITOS    <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+                                            
+                                                    PROGRAMADORES: Angulo, Jesús / Sanchez, Christian
+                                            
+                                                    REFERENCIA DE IMÁGENES:
+                                            
+                                                        https://www.wikidex.net/wiki/Pikachu_%28Pok%C3%A9mon_UNITE%29
+
+                                                        https://i.pinimg.com/originals/89/35/5d/89355d9b2954ed401254c4c52ff5a058.png
+                                            
+                                                        https://sprites.pmdcollab.org/
+                                            
+                                            
+                                                    REFERENCIA DE SONIDOS:
+                                            
+                                                        https://downloads.khinsider.com/game-soundtracks/album/pokemon-ruby-sapphire
+                                                        -music-super-complete/1-01%2520Title%2520Demo%2520~Departure%2520From%2520The.mp3
+                                            """, "CREDITOS DEL PROGRAMA", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnCreditsActionPerformed
 
     /**
