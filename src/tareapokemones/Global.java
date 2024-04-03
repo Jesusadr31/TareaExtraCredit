@@ -1,5 +1,8 @@
 package tareapokemones;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *Clase que representa funciones globales para acceder a ellas en el programa.
  * Esta clase contiene la creación de estructuras de datos como arboles, listas, entre otras, donde se relacionan en el programa para almacenar datos y valores.
@@ -13,6 +16,9 @@ public class Global {
     private static Time playtime = new Time();
     private static Tree invent = new Tree();
     private static Game game = new Game(new Pokemon("",0,""),new Tree(),0);
+    private static ImageIcon icon = new ImageIcon();
+    
+
 
     //Métodos Getters and Setters.
     /**
@@ -127,5 +133,14 @@ public class Global {
         Global.invent = invent;
     }
 
+    public static ImageIcon getIcon() {
+        return icon;
+    }
+
+    public static void setIcon(ImageIcon icon) {
+        Global.icon = icon;
+    }
+    
+    
 }
 

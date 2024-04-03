@@ -28,6 +28,16 @@ public class vtnPrincipal extends javax.swing.JFrame {
     List store = Global.getStore();
     Time playtime = Global.getPlaytime();
     long j = playtime.getCurrentTime();
+    String pathImagePikachuSigh = "/images/Sighpikachu.png";
+    String pathImagePikachuAngry  = "/images/Angrypikachu.png";
+    String pathImagePikachuNormal  = "/images/Normalpikachu.png";
+    String pathImagePikachuHappy  = "/images/Happypikachu.png";
+    String pathImagePikachuInspired  = "/images/Inspiredpikachu.png";
+    String pathImagePachirisuSigh = "/images/SighPachirisu.png";
+    String pathImagePachirisuAngry  = "/images/AngryPachirisu.png";
+    String pathImagePachirisuNormal  = "/images/NormalPachirisu.png";
+    String pathImagePachirisuHappy  = "/images/HappyPachirisu.png";
+    String pathImagePachirisuInspired  = "/images/InsoiredPachirisu.png";
     
     /**
      * Constructor de la clase vtnaPrincipal.
@@ -312,146 +322,76 @@ public class vtnPrincipal extends javax.swing.JFrame {
 
     private void btnEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadoActionPerformed
         int num;
-        Image image;
         try{
             num = Integer.parseInt(txtEstado.getText());
-            if(user.getUtility().getSize()>1){
-                if (num == 1 && user.getUtility().getHead().getPokemon().getName().equals("Pikachu")){
-                    if (user.getUtility().getHead().getPokemon().getStatus().equals("Sigh")) {
-                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Sighpikachu.png"));
-                        image = imageIcon.getImage();
-                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-                        ImageIcon icon = new ImageIcon(newImg);
-                        lblImage.setIcon(icon);
-                    } else if (user.getUtility().getHead().getPokemon().getStatus().equals("Angry")) {
-                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Angrypikachu.png"));
-                        image = imageIcon.getImage();
-                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-                        ImageIcon icon = new ImageIcon(newImg);
-                        lblImage.setIcon(icon);
-                    } else if (user.getUtility().getHead().getPokemon().getStatus().equals("Normal")) {
-                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Normalpikachu.png"));
-                        image = imageIcon.getImage();
-                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-                        ImageIcon icon = new ImageIcon(newImg);
-                        lblImage.setIcon(icon);
-                    } else if (user.getUtility().getHead().getPokemon().getStatus().equals("Happy")) {
-                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Happypikachu.png"));
-                        image = imageIcon.getImage();
-                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-                        ImageIcon icon = new ImageIcon(newImg);
-                        lblImage.setIcon(icon);
-                    } else if (user.getUtility().getHead().getPokemon().getStatus().equals("Inspired")) {
-                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Inspiredpikachu.png"));
-                        image = imageIcon.getImage();
-                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-                        ImageIcon icon = new ImageIcon(newImg);
-                        lblImage.setIcon(icon);
-                    }
-                }else{
-                    if (user.getUtility().getHead().getNext().getPokemon().getStatus().equals("Sigh")) {
-                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/SighPachirisu.png"));
-                        image = imageIcon.getImage();
-                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-                        ImageIcon icon = new ImageIcon(newImg);
-                        lblImage.setIcon(icon);
-                    } else if (user.getUtility().getHead().getNext().getPokemon().getStatus().equals("Angry")) {
-                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/AngryPachirisu.png"));
-                        image = imageIcon.getImage();
-                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-                        ImageIcon icon = new ImageIcon(newImg);
-                        lblImage.setIcon(icon);
-                    } else if (user.getUtility().getHead().getNext().getPokemon().getStatus().equals("Normal")) {
-                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/NormalPachirisu.png"));
-                        image = imageIcon.getImage();
-                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-                        ImageIcon icon = new ImageIcon(newImg);
-                        lblImage.setIcon(icon);
-                    } else if (user.getUtility().getHead().getNext().getPokemon().getStatus().equals("Happy")) {
-                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/HappyPachirisu.png"));
-                        image = imageIcon.getImage();
-                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-                        ImageIcon icon = new ImageIcon(newImg);
-                        lblImage.setIcon(icon);
-                    } else if (user.getUtility().getHead().getNext().getPokemon().getStatus().equals("Inspired")) {
-                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/InspiredPachirisu.png"));
-                        image = imageIcon.getImage();
-                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-                        ImageIcon icon = new ImageIcon(newImg);
-                        lblImage.setIcon(icon);
-                    }
+            if (num == 1 && user.getUtility().getHead().getPokemon().getName().equals("Pikachu") || num == 2 && user.getUtility().getHead().getNext().getPokemon().getName().equals("Pikachu")){
+                System.out.println("sexoo1");
+                
+                if (user.getUtility().getHead().getPokemon().getStatus().equals("Sigh")) {
+                    ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Sighpikachu.png"));
+                    Image image = imageIcon.getImage();
+                    ImageIcon icon = new ImageIcon(image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH));
+                    lblImage.setIcon(icon);
+                } else if (user.getUtility().getHead().getPokemon().getStatus().equals("Angry")) {
+                    System.out.println("sexoo");
+                    ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Angrypikachu.png"));
+                    Image image = imageIcon.getImage();
+                    Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                    ImageIcon icon = new ImageIcon(newImg);
+                    lblImage.setIcon(icon);
+                } else if (user.getUtility().getHead().getPokemon().getStatus().equals("Normal")) {
+                    ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Normalpikachu.png"));
+                    Image image = imageIcon.getImage();
+                    Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                    ImageIcon icon = new ImageIcon(newImg);
+                    lblImage.setIcon(icon);
+                } else if (user.getUtility().getHead().getPokemon().getStatus().equals("Happy")) {
+                    ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Happypikachu.png"));
+                    Image image = imageIcon.getImage();
+                    Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                    ImageIcon icon = new ImageIcon(newImg);
+                    lblImage.setIcon(icon);
+                } else if (user.getUtility().getHead().getPokemon().getStatus().equals("Inspired")) {
+                    ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Inspiredpikachu.png"));
+                    Image image = imageIcon.getImage();
+                    Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                    ImageIcon icon = new ImageIcon(newImg);
+                    lblImage.setIcon(icon);
                 }
-            }else{
-            
-                if(user.getUtility().getHead().getPokemon().getName().equals("Pikachu")){
-                    
-                    if (user.getUtility().getHead().getPokemon().getStatus().equals("Sigh")) {
-                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Sighpikachu.png"));
-                        image = imageIcon.getImage();
-                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-                        ImageIcon icon = new ImageIcon(newImg);
-                        lblImage.setIcon(icon);
-                    } else if (user.getUtility().getHead().getPokemon().getStatus().equals("Angry")) {
-                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Angrypikachu.png"));
-                        image = imageIcon.getImage();
-                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-                        ImageIcon icon = new ImageIcon(newImg);
-                        lblImage.setIcon(icon);
-                    } else if (user.getUtility().getHead().getPokemon().getStatus().equals("Normal")) {
-                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Normalpikachu.png"));
-                        image = imageIcon.getImage();
-                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-                        ImageIcon icon = new ImageIcon(newImg);
-                        lblImage.setIcon(icon);
-                    } else if (user.getUtility().getHead().getPokemon().getStatus().equals("Happy")) {
-                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Happypikachu.png"));
-                        image = imageIcon.getImage();
-                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-                        ImageIcon icon = new ImageIcon(newImg);
-                        lblImage.setIcon(icon);
-                    } else if (user.getUtility().getHead().getPokemon().getStatus().equals("Inspired")) {
-                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/Inspiredpikachu.png"));
-                        image = imageIcon.getImage();
-                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-                        ImageIcon icon = new ImageIcon(newImg);
-                        lblImage.setIcon(icon);
-                    }
-                    
-                }else if (user.getUtility().getHead().getPokemon().getName().equals("Pachirisu")) {
-                        System.out.println("SI ENTRA");
-                    
-                    if (user.getUtility().getHead().getNext().getPokemon().getStatus().equals("Sigh")) {
-                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/SighPachirisu.png"));
-                        image = imageIcon.getImage();
-                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-                        ImageIcon icon = new ImageIcon(newImg);
-                        lblImage.setIcon(icon);
-                    } else if (user.getUtility().getHead().getNext().getPokemon().getStatus().equals("Angry")) {
-                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/AngryPachirisu.png"));
-                        image = imageIcon.getImage();
-                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-                        ImageIcon icon = new ImageIcon(newImg);
-                        lblImage.setIcon(icon);
-                    } else if (user.getUtility().getHead().getNext().getPokemon().getStatus().equals("Normal")) {
-                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/NormalPachirisu.png"));
-                        image = imageIcon.getImage();
-                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-                        ImageIcon icon = new ImageIcon(newImg);
-                        lblImage.setIcon(icon);
-                    } else if (user.getUtility().getHead().getNext().getPokemon().getStatus().equals("Happy")) {
-                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/HappyPachirisu.png"));
-                        image = imageIcon.getImage();
-                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-                        ImageIcon icon = new ImageIcon(newImg);
-                        lblImage.setIcon(icon);
-                    } else if (user.getUtility().getHead().getNext().getPokemon().getStatus().equals("Inspired")) {
-                        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/InspiredPachirisu.png"));
-                        image = imageIcon.getImage();
-                        Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
-                        ImageIcon icon = new ImageIcon(newImg);
-                        lblImage.setIcon(icon);
-                    }
+/*
+            } else if (num == 1 && user.getUtility().getHead().getPokemon().getName().equals("Pachirisu")||num == 2 && user.getUtility().getHead().getPokemon().getName().equals("Pachirisu")){
+                if (user.getUtility().getHead().getNext().getPokemon().getStatus().equals("Sigh")) {
+                    ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/SighPachirisu.png"));
+                    image = imageIcon.getImage();
+                    Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                    ImageIcon icon = new ImageIcon(newImg);
+                    lblImage.setIcon(icon);
+                } else if (user.getUtility().getHead().getNext().getPokemon().getStatus().equals("Angry")) {
+                    ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/AngryPachirisu.png"));
+                    image = imageIcon.getImage();
+                    Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                    ImageIcon icon = new ImageIcon(newImg);
+                    lblImage.setIcon(icon);
+                } else if (user.getUtility().getHead().getNext().getPokemon().getStatus().equals("Normal")) {
+                    ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/NormalPachirisu.png"));
+                    image = imageIcon.getImage();
+                    Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                    ImageIcon icon = new ImageIcon(newImg);
+                    lblImage.setIcon(icon);
+                } else if (user.getUtility().getHead().getNext().getPokemon().getStatus().equals("Happy")) {
+                    ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/HappyPachirisu.png"));
+                    image = imageIcon.getImage();
+                    Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                    ImageIcon icon = new ImageIcon(newImg);
+                    lblImage.setIcon(icon);
+                } else if (user.getUtility().getHead().getNext().getPokemon().getStatus().equals("Inspired")) {
+                    ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/InspiredPachirisu.png"));
+                    image = imageIcon.getImage();
+                    Image newImg = image.getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+                    ImageIcon icon = new ImageIcon(newImg);
+                    lblImage.setIcon(icon);
                 }
+            }*/
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Valor ivalido!,Ese pokemon no existe");
