@@ -61,6 +61,9 @@ public class Pokemon {
      */
     public void SumRelation(int num){
         this.relation += num;
+        if(this.relation >= 10000){
+            this.relation=10000;
+        }
     }
 
     /**
@@ -84,7 +87,7 @@ public class Pokemon {
      */
     public void UpdateStatus(){
         if(relation >= 0 && relation <= 2000){
-            this.status = "Sight";
+            this.status = "Sigh";
         }else if(relation >= 2000 && relation <= 4000){
             this.status = "Angry";
         }else if(relation >= 4000 && relation <= 6000){

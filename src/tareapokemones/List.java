@@ -109,7 +109,7 @@ public class List {
     public NodeList search(String poke){
         NodeList currentNode = head;
         while(currentNode != null){
-            if(currentNode.getPokemon().getName().equals(poke)){
+            if(currentNode.getPokemon().getName().toLowerCase().equals(poke.toLowerCase())){
                 return currentNode;
             }
             currentNode = currentNode.getNext();
