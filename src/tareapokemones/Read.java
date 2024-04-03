@@ -101,12 +101,12 @@ public class Read {
             while (line != null) {
                 if(line.equals("Pokemons")){
                     line = in.readLine();
-                    user.getUtility().insertarFinal(new Pokemon(line,0,"Sight"),inven1);
+                    user.getUtility().insertarFinal(new Pokemon(line,0,"Sigh"),inven1);
                     cont ++;
                     if(cont == 2){
                        
                         line = in.readLine();
-                        user.getUtility().insertarFinal(new Pokemon(line,0,"Sight"),inven1);
+                        user.getUtility().insertarFinal(new Pokemon(line,0,"Sigh"),inven1);
                         cont ++;
                     }
                 }

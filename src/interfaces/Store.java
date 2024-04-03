@@ -33,6 +33,12 @@ public class Store extends javax.swing.JFrame {
         user.SumWatts(10);
         textAreaStore.setText(store.printStore());
         watts.setText(Integer.toString(user.getWatts()));
+        poke1.setText("-> "+user.getUtility().getHead().getPokemon().getName());
+        if(user.getUtility().getHead().getNext() == null){
+            poke2.setText(" ");
+        }else{
+            poke2.setText("-> "+ user.getUtility().getHead().getNext().getPokemon().getName());
+        }
     }
 
     /**
@@ -53,6 +59,9 @@ public class Store extends javax.swing.JFrame {
         btnExit = new javax.swing.JButton();
         txtPokemon = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        poke1 = new javax.swing.JLabel();
+        poke2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         textAreaStore = new javax.swing.JTextArea();
@@ -109,7 +118,16 @@ public class Store extends javax.swing.JFrame {
         jLabel3.setText("Pokemon");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 350));
+        jLabel4.setText("Pokemones");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
+
+        poke1.setText("1");
+        jPanel1.add(poke1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, 100, -1));
+
+        poke2.setText("2");
+        jPanel1.add(poke2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 100, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 350));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -120,7 +138,7 @@ public class Store extends javax.swing.JFrame {
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 250, 300));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 310, 350));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 310, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -154,43 +172,47 @@ public class Store extends javax.swing.JFrame {
             }else{
                 n = Integer.parseInt(txtnum.getText());
                 name = txtPokemon.getText().toLowerCase();                
-                
-                int cont = 0;
-                NodeList currentNode = user.getUtility().getHead();
-                while (currentNode != null) {
-                    if (currentNode.getPokemon().getName().toLowerCase().equals(name)) {
-                        NodeList current = store.getHead();
-                        while (current != null) {
-                            if (cont == n - 1) {
-                                if (user.getWatts() >= current.getGift().getPrice()) {
-                                    int input = JOptionPane.showConfirmDialog(null, "Desea comprar este regalo?");
-                                    // 1= sí, 2 = no, 0 = cancelar
-                                    switch (input) {
-                                        case JOptionPane.YES_OPTION -> {
-                                            currentNode.getInventory().searchElement(current.getGift().getPrice()).sumCont();
-                                            currentNode.getPokemon().SumRelation(current.getGift().getEffect());
-                                            currentNode.getPokemon().UpdateStatus();
-                                            user.ResWatts(current.getGift().getPrice());
-                                            JOptionPane.showMessageDialog(null, "Objeto comprado!!");
+                if (user.getUtility().search(name).getPokemon().getRelation()<10000) {
+                    int cont = 0;
+                    NodeList currentNode = user.getUtility().getHead();
+                    while (currentNode != null) {
+                        if (currentNode.getPokemon().getName().toLowerCase().equals(name)) {
+                            NodeList current = store.getHead();
+                            while (current != null) {
+                                if (cont == n - 1) {
+                                    if (user.getWatts() >= current.getGift().getPrice()) {
+                                        int input = JOptionPane.showConfirmDialog(null, "Desea comprar este regalo?");
+                                        // 1= sí, 2 = no, 0 = cancelar
+                                        switch (input) {
+                                            case JOptionPane.YES_OPTION -> {
+                                                currentNode.getInventory().searchElement(current.getGift().getPrice()).sumCont();
+                                                currentNode.getPokemon().SumRelation(current.getGift().getEffect());
+                                                currentNode.getPokemon().UpdateStatus();
+                                                user.ResWatts(current.getGift().getPrice());
+                                                JOptionPane.showMessageDialog(null, "Objeto comprado!!");
+                                            }
+                                            case JOptionPane.NO_OPTION ->
+                                                JOptionPane.showMessageDialog(null, "Compra rechazada");
+                                            case JOptionPane.CANCEL_OPTION ->
+                                                JOptionPane.showMessageDialog(null, "Cancelada");
+                                            default -> {
+                                            }
                                         }
-                                        case JOptionPane.NO_OPTION -> JOptionPane.showMessageDialog(null, "Compra rechazada");
-                                        case JOptionPane.CANCEL_OPTION -> JOptionPane.showMessageDialog(null, "Cancelada");
-                                        default -> {
-                                        }
+                                    } else {
+                                        JOptionPane.showMessageDialog(null, "No hay bs");
                                     }
-                                }else{
-                                    JOptionPane.showMessageDialog(null, "No hay bs");
                                 }
+                                cont++;
+                                current = current.getNext();
                             }
-                            cont++;
-                            current = current.getNext();
+
                         }
-
+                        currentNode = currentNode.getNext();
                     }
-                    currentNode = currentNode.getNext();
-                }
-                
 
+                }else{
+                    JOptionPane.showMessageDialog(null, "Ya tu pokemon tiene el maximo de Relacion");
+                }
             }
             
             watts.setText(Integer.toString(user.getWatts()));
@@ -247,9 +269,12 @@ public class Store extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel poke1;
+    private javax.swing.JLabel poke2;
     private javax.swing.JTextArea textAreaStore;
     private javax.swing.JTextField txtPokemon;
     private javax.swing.JTextField txtnum;

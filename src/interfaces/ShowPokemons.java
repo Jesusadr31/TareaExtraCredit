@@ -117,38 +117,12 @@ public class ShowPokemons extends javax.swing.JFrame {
                 num = Integer.parseInt(txtnumPkemon.getText());
             
                 if(num == 1){
-                    if (user.getUtility().getHead() != null) {
-                        if(user.getUtility().getHead().getPokemon().getName().equals("Pikachu")){
-                            user.getUtility().insertarFinal(pokemons.getHead().getNext().getPokemon(),invent);
-                        }
-                        if(user.getUtility().getHead().getNext().getPokemon().getName().equals("Pachirisu")){
-                            user.getUtility().insertarFinal(pokemons.getHead().getPokemon(),invent);
-                        }else{
-                            JOptionPane.showMessageDialog(null, "Ya tienes el maximo de pokemones existentes");
-                        }
-                    }else{
-                        user.getUtility().insertarFinal(pokemons.getHead().getPokemon(), invent);
-                    }
-                }else if(num == 2){
-                    if (user.getUtility().getHead() != null) {
-                        if(user.getUtility().getHead().getPokemon().getName().equals("Pikachu")){
-                            user.getUtility().insertarFinal(pokemons.getHead().getNext().getPokemon(),invent);
-                        }
-                        if(user.getUtility().getHead().getNext().getPokemon().getName().equals("Pachirisu")){
-                            user.getUtility().insertarFinal(pokemons.getHead().getPokemon(),invent);
-                        }
-                        else{
-                            JOptionPane.showMessageDialog(null, "Ya tienes el maximo de pokemones existentes");
-                        }
-                    }else{
-                        user.getUtility().insertarFinal(pokemons.getHead().getNext().getPokemon(),invent);
+                    user.getUtility().insertarFinal(pokemons.getHead().getPokemon(), invent);
                     
-                        
-                    }
-
-                }else{
-                    JOptionPane.showMessageDialog(null, "Este pokemon no existe, Porfavor elija un Pokemon existente");
-                }   
+                }else if(num == 2){
+                    
+                    user.getUtility().insertarFinal(pokemons.getHead().getNext().getPokemon(), invent);
+                }
                     long x = System.currentTimeMillis();
                     j = TimeUnit.MILLISECONDS.toSeconds(x);
                     playtime.setCurrentTime(j);
