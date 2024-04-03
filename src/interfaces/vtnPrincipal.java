@@ -88,7 +88,7 @@ public class vtnPrincipal extends javax.swing.JFrame {
         btnGuardarJuego = new javax.swing.JButton();
         lblImage = new javax.swing.JLabel();
         btnAgregarNuevo = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnBackMain = new javax.swing.JButton();
 
         btnGuardar1.setBackground(new java.awt.Color(255, 255, 153));
         btnGuardar1.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
@@ -228,10 +228,15 @@ public class vtnPrincipal extends javax.swing.JFrame {
         });
         jPanel1.add(btnAgregarNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, 160, 30));
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 153));
-        jButton2.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
-        jButton2.setText("Regresar");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 550, 160, 30));
+        btnBackMain.setBackground(new java.awt.Color(255, 255, 153));
+        btnBackMain.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
+        btnBackMain.setText("Regresar");
+        btnBackMain.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackMainActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnBackMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 550, 160, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 620));
 
@@ -329,6 +334,10 @@ public class vtnPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardar2ActionPerformed
 
+    /**
+     * Acción realizada al presioanr el botón para comprobar el estado de animo del pokemon seleccionado.
+     * @param evt El evento de acción que desencadena esta acción.
+     */
     private void btnEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadoActionPerformed
         int num;
         try{
@@ -498,6 +507,10 @@ public class vtnPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEstadoActionPerformed
 
+    /**
+     * Acción realizada al presionar el botón para agregar nuevo pokemon bajo las restricciones de tener más de 8000 pts de relacion.
+     * @param evt El evento de acción que desencadena esta acción.
+     */
     private void btnAgregarNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarNuevoActionPerformed
         int num;
         try {
@@ -525,6 +538,16 @@ public class vtnPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No se puede agregar otro pokemon");
         }  
     }//GEN-LAST:event_btnAgregarNuevoActionPerformed
+
+    /**
+     * Acción realizada al presionar el botón para regresar al menú principal.
+     * @param evt El evento de acción que desencadena esta acción.
+     */
+    private void btnBackMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMainActionPerformed
+        Menu vtna = new Menu();
+        vtna.show();
+        this.dispose();
+    }//GEN-LAST:event_btnBackMainActionPerformed
 
     /**
      * Método principal para ejecutar la aplicación.
@@ -570,6 +593,7 @@ public class vtnPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextArea Pokemones;
     private javax.swing.JLabel Time;
     private javax.swing.JButton btnAgregarNuevo;
+    private javax.swing.JButton btnBackMain;
     private javax.swing.JButton btnEstado;
     private javax.swing.JButton btnGuardar1;
     private javax.swing.JButton btnGuardar2;
@@ -578,7 +602,6 @@ public class vtnPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnPokemon;
     private javax.swing.JButton btnTienda;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
