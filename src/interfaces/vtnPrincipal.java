@@ -81,11 +81,14 @@ public class vtnPrincipal extends javax.swing.JFrame {
         Pokemones = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtArea = new javax.swing.JTextArea();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         btnJugar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         btnGuardarJuego = new javax.swing.JButton();
         lblImage = new javax.swing.JLabel();
         btnAgregarNuevo = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         btnGuardar1.setBackground(new java.awt.Color(255, 255, 153));
         btnGuardar1.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
@@ -123,7 +126,7 @@ public class vtnPrincipal extends javax.swing.JFrame {
                 btnTiendaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnTienda, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 140, 30));
+        jPanel1.add(btnTienda, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 160, 30));
 
         jLabel1.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         jLabel1.setText("Watts:");
@@ -149,7 +152,7 @@ public class vtnPrincipal extends javax.swing.JFrame {
                 btnPokemonActionPerformed(evt);
             }
         });
-        jPanel1.add(btnPokemon, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 140, 30));
+        jPanel1.add(btnPokemon, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 160, 30));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -157,9 +160,8 @@ public class vtnPrincipal extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         jLabel3.setText("Pokemones");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
-        jPanel2.add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 90, -1));
+        jPanel2.add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 160, 30));
 
-        btnEstado.setBackground(new java.awt.Color(255, 255, 153));
         btnEstado.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         btnEstado.setText("Actualizar Estado");
         btnEstado.addActionListener(new java.awt.event.ActionListener() {
@@ -167,21 +169,29 @@ public class vtnPrincipal extends javax.swing.JFrame {
                 btnEstadoActionPerformed(evt);
             }
         });
-        jPanel2.add(btnEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 130, 30));
+        jPanel2.add(btnEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 160, 30));
 
         Pokemones.setColumns(20);
         Pokemones.setRows(5);
         jScrollPane1.setViewportView(Pokemones);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 230, 100));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 230, 100));
 
         txtArea.setColumns(20);
         txtArea.setRows(5);
         jScrollPane2.setViewportView(txtArea);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 250, 320));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 250, 320));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 330, 560));
+        jLabel5.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 11)); // NOI18N
+        jLabel5.setText(" para visualizar el estado");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 11)); // NOI18N
+        jLabel7.setText("Ingrese el número del Pokemón");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, -1, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 330, 620));
 
         btnJugar.setBackground(new java.awt.Color(255, 255, 153));
         btnJugar.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
@@ -191,7 +201,7 @@ public class vtnPrincipal extends javax.swing.JFrame {
                 btnJugarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 140, 30));
+        jPanel1.add(btnJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 160, 30));
 
         jLabel4.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
         jLabel4.setText("seconds");
@@ -205,8 +215,8 @@ public class vtnPrincipal extends javax.swing.JFrame {
                 btnGuardarJuegoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardarJuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, 140, 30));
-        jPanel1.add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 160, 110));
+        jPanel1.add(btnGuardarJuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, 160, 30));
+        jPanel1.add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 160, 110));
 
         btnAgregarNuevo.setBackground(new java.awt.Color(255, 255, 153));
         btnAgregarNuevo.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
@@ -216,9 +226,14 @@ public class vtnPrincipal extends javax.swing.JFrame {
                 btnAgregarNuevoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAgregarNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 140, 30));
+        jPanel1.add(btnAgregarNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, 160, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 560));
+        jButton2.setBackground(new java.awt.Color(255, 255, 153));
+        jButton2.setFont(new java.awt.Font("Swis721 LtEx BT", 1, 12)); // NOI18N
+        jButton2.setText("Regresar");
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 550, 160, 30));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 620));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -563,10 +578,13 @@ public class vtnPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnPokemon;
     private javax.swing.JButton btnTienda;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
