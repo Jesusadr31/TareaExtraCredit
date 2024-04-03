@@ -134,10 +134,18 @@ public class Global {
         Global.invent = invent;
     }
 
+    /**
+     * Método Getter para obtener el icono.
+     * @return el icono.
+     */
     public static ImageIcon getIcon() {
         return icon;
     }
 
+    /**
+     * Método Setter para asignarle nuevo icono.
+     * @param icon nuevo icono.
+     */
     public static void setIcon(ImageIcon icon) {
         Global.icon = icon;
     }
