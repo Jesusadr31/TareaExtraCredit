@@ -1,5 +1,8 @@
 package tareapokemones;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author chris
@@ -12,7 +15,8 @@ public class Global {
     private static Time playtime = new Time();
     private static Tree invent = new Tree();
     private static Game game = new Game(new Pokemon("",0,""),new Tree(),0);
-
+    private static ImageIcon icon;
+    
     public static Game getGame() {
         return game;
     }
@@ -69,5 +73,14 @@ public class Global {
         Global.invent = invent;
     }
 
+    public static ImageIcon getIcon() {
+        return icon;
+    }
+
+    public static void setIcon(ImageIcon icon) {
+        Global.icon = icon;
+    }
+    
+    
 }
 
